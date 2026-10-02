@@ -1,0 +1,6 @@
+{
+  "name": "DSA Pattern Vault",
+  "description": "Personal DSA revision and progress-tracking cockpit with 98 curated LeetCode problems across core algorithmic patterns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
