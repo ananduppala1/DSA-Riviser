@@ -81,9 +81,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Brand Header */}
       <div className="p-5 border-b border-[#1a1a1a]">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-violet-950/40 text-sm tracking-wider">
+          {/* <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-violet-950/40 text-sm tracking-wider">
             PV
-          </div>
+          </div> */}
+          <img
+            src="/BugBros Neon Coding Emblem.png"
+            alt="BugBros"
+            className="w-8 h-8 rounded-lg object-cover shadow-lg shadow-violet-950/40"
+          />
           <div>
             <h1 className="text-sm font-bold text-zinc-100 tracking-tight leading-none">
               DSA Pattern Vault
