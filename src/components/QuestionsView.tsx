@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Question, Difficulty, Priority } from '../types.ts';
 import { QUESTIONS, TOPICS } from '../data/curriculum.ts';
 import { QuestionCard } from './QuestionCard.tsx';
+import { QuestionListHeader } from './QuestionListHeader.tsx';
 import { Search, Filter, ArrowUpDown, X, CheckCircle2 } from 'lucide-react';
 
 interface QuestionsViewProps {
@@ -254,7 +255,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
         </div>
       </div>
 
-      {/* Questions Grid */}
+      {/* Questions Vertical List */}
       {filteredQuestions.length === 0 ? (
         <div className="py-16 text-center bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-8 space-y-3">
           <p className="text-zinc-400 text-sm">
@@ -268,20 +269,23 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredQuestions.map((question) => (
-            <QuestionCard
-              key={question.id}
-              question={question}
-              isSolved={solvedQuestions.includes(question.id)}
-              isDifficult={difficultQuestions.includes(question.id)}
-              personalNote={personalNotes[question.id]}
-              onToggleSolved={onToggleSolved}
-              onToggleDifficult={onToggleDifficult}
-              onSaveNote={onSaveNote}
-              onOpenPatternDetail={onOpenPatternDetail}
-            />
-          ))}
+        <div className="space-y-2">
+          <QuestionListHeader />
+          <div className="space-y-2">
+            {filteredQuestions.map((question) => (
+              <QuestionCard
+                key={question.id}
+                question={question}
+                isSolved={solvedQuestions.includes(question.id)}
+                isDifficult={difficultQuestions.includes(question.id)}
+                personalNote={personalNotes[question.id]}
+                onToggleSolved={onToggleSolved}
+                onToggleDifficult={onToggleDifficult}
+                onSaveNote={onSaveNote}
+                onOpenPatternDetail={onOpenPatternDetail}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

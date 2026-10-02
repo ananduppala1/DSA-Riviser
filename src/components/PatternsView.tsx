@@ -345,7 +345,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
 
                                   {/* Level 4: Representative LeetCode Questions */}
                                   {isSubExpanded && (
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pl-3 sm:pl-4 border-l-2 border-violet-900/30">
+                                    <div className="space-y-2 pl-2 sm:pl-3 border-l-2 border-violet-900/40">
                                       {subQuestions.map((question) => (
                                         <QuestionCard
                                           key={question.id}

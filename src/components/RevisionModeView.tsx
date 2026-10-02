@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Question } from '../types.ts';
 import { QUESTIONS, TOPICS } from '../data/curriculum.ts';
 import { QuestionCard } from './QuestionCard.tsx';
+import { QuestionListHeader } from './QuestionListHeader.tsx';
 import { Flame, Star, AlertCircle, Layers, CheckCircle2 } from 'lucide-react';
 
 interface RevisionModeViewProps {
@@ -150,7 +151,7 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
         </div>
       </div>
 
-      {/* Questions Grid */}
+      {/* Questions Vertical List */}
       {targetQuestions.length === 0 ? (
         <div className="py-16 text-center bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-8 space-y-3">
           <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/20">
@@ -162,20 +163,23 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {targetQuestions.map((question) => (
-            <QuestionCard
-              key={question.id}
-              question={question}
-              isSolved={solvedQuestions.includes(question.id)}
-              isDifficult={difficultQuestions.includes(question.id)}
-              personalNote={personalNotes[question.id]}
-              onToggleSolved={onToggleSolved}
-              onToggleDifficult={onToggleDifficult}
-              onSaveNote={onSaveNote}
-              onOpenPatternDetail={onOpenPatternDetail}
-            />
-          ))}
+        <div className="space-y-2">
+          <QuestionListHeader />
+          <div className="space-y-2">
+            {targetQuestions.map((question) => (
+              <QuestionCard
+                key={question.id}
+                question={question}
+                isSolved={solvedQuestions.includes(question.id)}
+                isDifficult={difficultQuestions.includes(question.id)}
+                personalNote={personalNotes[question.id]}
+                onToggleSolved={onToggleSolved}
+                onToggleDifficult={onToggleDifficult}
+                onSaveNote={onSaveNote}
+                onOpenPatternDetail={onOpenPatternDetail}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

@@ -304,7 +304,7 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
                 <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider block">
                   High-Yield Revision Problems:
                 </span>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="space-y-2">
                   {topicQuestions.map((q) => (
                     <QuestionCard
                       key={q.id}
