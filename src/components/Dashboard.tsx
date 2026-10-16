@@ -87,11 +87,11 @@ export const Dashboard: React.FC<DashboardProps> = ({
   return (
     <div className="space-y-8 animate-fade-in pb-12">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#13121d] via-[#0f0f14] to-[#09090b] border border-[#232135] p-6 sm:p-8">
+      <section className="relative overflow-hidden rounded-2xl bg-[#0f0f12] border border-[#222228] p-6 sm:p-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-4 max-w-xl text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-semibold text-violet-300">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-xs font-medium text-zinc-300">
+              <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
               <span>Assessment Revision Cockpit</span>
             </div>
 
@@ -112,7 +112,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <button
                 type="button"
                 onClick={() => onSelectTab('patterns')}
-                className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-violet-600 hover:bg-violet-500 shadow-lg shadow-violet-900/30 transition-all flex items-center gap-2"
+                className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-900 bg-zinc-100 hover:bg-white transition-all flex items-center gap-2"
               >
                 <span>Start Revision</span>
                 <ArrowRight className="w-4 h-4" />
@@ -121,16 +121,16 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <button
                 type="button"
                 onClick={() => onSelectTab('quick-revision')}
-                className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-amber-300 bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 transition-all flex items-center gap-1.5"
+                className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-200 bg-[#18181c] hover:bg-[#222228] border border-[#2c2c36] transition-all flex items-center gap-1.5"
               >
-                <Zap className="w-4 h-4 text-amber-400" />
+                <Zap className="w-4 h-4 text-zinc-400" />
                 <span>Quick Revision (2-3d)</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => onSelectTab('progress')}
-                className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white bg-[#1a1a24] hover:bg-[#222230] border border-[#2e2d42] transition-all"
+                className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-zinc-200 bg-[#121215] hover:bg-[#1a1a1f] border border-[#24242c] transition-all"
               >
                 View Analytics
               </button>
@@ -138,12 +138,12 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
             {/* Motivational Microcopy Rotator */}
             <div className="pt-3 text-xs text-zinc-500 flex items-center justify-center lg:justify-start gap-2 italic">
-              <span className="w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 shrink-0" />
               <span>{MOTIVATIONAL_QUOTES[quoteIndex]}</span>
             </div>
           </div>
 
-          {/* Large Circular Progress Indicator */}
+          {/* Clean Circular Progress Indicator */}
           <div className="relative shrink-0 flex flex-col items-center justify-center">
             <div className="relative w-44 h-44 flex items-center justify-center">
               <svg className="w-full h-full -rotate-90" viewBox="0 0 160 160">
@@ -151,32 +151,26 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   cx="80"
                   cy="80"
                   r={radius}
-                  stroke="#1c1a29"
-                  strokeWidth="12"
+                  stroke="#1c1c22"
+                  strokeWidth="10"
                   fill="transparent"
                 />
                 <circle
                   cx="80"
                   cy="80"
                   r={radius}
-                  stroke="url(#progressGradient)"
-                  strokeWidth="12"
+                  stroke="#52525b"
+                  strokeWidth="10"
                   strokeDasharray={circumference}
                   strokeDashoffset={strokeDashoffset}
                   strokeLinecap="round"
                   fill="transparent"
-                  className="transition-all duration-700 ease-out"
+                  className="transition-all duration-500 ease-out"
                 />
-                <defs>
-                  <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#8b5cf6" />
-                    <stop offset="100%" stopColor="#10b981" />
-                  </linearGradient>
-                </defs>
               </svg>
 
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                <span className="text-3xl font-extrabold text-white font-mono tabular-nums">
+                <span className="text-3xl font-bold text-white font-mono tabular-nums">
                   {overallPercentage}%
                 </span>
                 <span className="text-xs text-zinc-400 font-mono mt-0.5 tabular-nums">
@@ -210,7 +204,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
             Pattern Coverage
           </span>
-          <div className="text-2xl font-bold text-emerald-400 font-mono tabular-nums">
+          <div className="text-2xl font-bold text-zinc-100 font-mono tabular-nums">
             {overallPercentage}%
           </div>
           <div className="mt-2 text-[11px] text-zinc-500">
@@ -223,7 +217,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             Topics Completed
           </span>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-2xl font-bold text-violet-400 font-mono tabular-nums">
+            <span className="text-2xl font-bold text-zinc-100 font-mono tabular-nums">
               {topicsCompletedCount}
             </span>
             <span className="text-xs text-zinc-500 font-mono">/ 18</span>
@@ -249,9 +243,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
             Current Streak
           </span>
-          <div className="flex items-center gap-1.5 text-amber-400">
-            <Flame className="w-5 h-5 fill-amber-400/20" />
-            <span className="text-2xl font-bold font-mono tabular-nums">{streak.current}d</span>
+          <div className="flex items-center gap-1.5 text-zinc-300">
+            <Flame className="w-5 h-5 text-zinc-400" />
+            <span className="text-2xl font-bold font-mono tabular-nums text-zinc-100">{streak.current}d</span>
           </div>
           <div className="mt-2 text-[11px] text-zinc-500">
             Best: {streak.longest}d
@@ -262,8 +256,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
             Revision Pace
           </span>
-          <div className="flex items-center gap-1.5 text-cyan-400">
-            <TrendingUp className="w-5 h-5" />
+          <div className="flex items-center gap-1.5 text-zinc-300">
+            <TrendingUp className="w-5 h-5 text-zinc-400" />
             <span className="text-2xl font-bold font-mono tabular-nums">
               {solvedCount === 0 ? '0' : Math.min(98, Math.round(solvedCount * 1.2))}
             </span>
@@ -276,7 +270,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
       {/* Empty State Banner if 0 problems solved */}
       {solvedCount === 0 && (
-        <div className="rounded-xl border border-violet-900/40 bg-[#0d0d16] p-6 text-center space-y-3">
+        <div className="rounded-xl border border-zinc-800 bg-[#0d0d0f] p-6 text-center space-y-3">
           <h2 className="text-lg font-bold text-zinc-100">Your vault is ready.</h2>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-md mx-auto">
             You already solved 400+ problems in the past—your intuition is still there. Start with one pattern to wake it up.
@@ -284,7 +278,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <button
             type="button"
             onClick={() => onSelectTopic('arrays-hashing')}
-            className="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-violet-600 hover:bg-violet-500 transition-colors inline-flex items-center gap-1.5"
+            className="px-4 py-2 rounded-lg text-xs font-semibold text-zinc-900 bg-zinc-100 hover:bg-white transition-colors inline-flex items-center gap-1.5"
           >
             <span>Start with Arrays + Hashing</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -298,8 +292,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
         <section className="bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-5 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/20">
-                <Flame className="w-4 h-4" />
+              <div className="p-1.5 rounded-md bg-zinc-800 text-zinc-300 border border-zinc-700">
+                <Flame className="w-4 h-4 text-zinc-300" />
               </div>
               <h2 className="text-sm font-bold text-zinc-100 uppercase tracking-wide">
                 Priority Revision Topics
@@ -307,7 +301,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             </div>
             <button
               onClick={() => onSelectTab('revision-mode')}
-              className="text-xs text-rose-400 hover:text-rose-300 font-medium flex items-center gap-1"
+              className="text-xs text-zinc-400 hover:text-white font-medium flex items-center gap-1 transition-colors"
             >
               <span>Focus Mode</span>
               <ArrowRight className="w-3 h-3" />
@@ -327,7 +321,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-violet-400">
+                    <span className="font-mono text-xs font-bold text-zinc-400">
                       {topic.letter}.
                     </span>
                     <span className="text-xs font-semibold text-zinc-200 group-hover:text-white">
@@ -345,7 +339,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   </span>
                   <div className="w-20 h-1.5 bg-[#202027] rounded-full overflow-hidden mt-1">
                     <div
-                      className="h-full bg-rose-500 rounded-full"
+                      className="h-full bg-zinc-500 rounded-full"
                       style={{ width: `${topic.percentage}%` }}
                     />
                   </div>
@@ -359,8 +353,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
         <section className="bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-5 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                <CheckCircle2 className="w-4 h-4" />
+              <div className="p-1.5 rounded-md bg-zinc-800 text-zinc-300 border border-zinc-700">
+                <CheckCircle2 className="w-4 h-4 text-zinc-300" />
               </div>
               <h2 className="text-sm font-bold text-zinc-100 uppercase tracking-wide">
                 Recently Completed
@@ -368,7 +362,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             </div>
             <button
               onClick={() => onSelectTab('questions')}
-              className="text-xs text-zinc-400 hover:text-zinc-200 font-medium flex items-center gap-1"
+              className="text-xs text-zinc-400 hover:text-zinc-200 font-medium flex items-center gap-1 transition-colors"
             >
               <span>View All 98</span>
               <ArrowRight className="w-3 h-3" />
@@ -399,7 +393,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-emerald-400 font-mono font-semibold">
+                    <span className="text-[10px] text-zinc-300 font-mono font-semibold">
                       ✓ Done
                     </span>
                     <button
@@ -421,7 +415,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Layers className="w-4 h-4 text-violet-400" />
+            <Layers className="w-4 h-4 text-zinc-400" />
             <h2 className="text-sm font-bold text-zinc-100 uppercase tracking-wide">
               Topic-Wise Pattern Coverage
             </h2>
@@ -436,21 +430,21 @@ export const Dashboard: React.FC<DashboardProps> = ({
               onClick={() => onSelectTopic(topic.id)}
               className={`p-4 rounded-xl border transition-all cursor-pointer group ${
                 topic.isComplete
-                  ? 'bg-[#0f1411] border-emerald-900/40 hover:border-emerald-700/60'
+                  ? 'bg-[#0f0f12] border-zinc-700 hover:border-zinc-500'
                   : 'bg-[#0f0f12] border-[#1e1e23] hover:border-[#303038] hover:bg-[#131317]'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-violet-400 bg-violet-950/40 px-1.5 py-0.5 rounded">
+                  <span className="font-mono text-xs font-bold text-zinc-400 bg-zinc-800/80 px-1.5 py-0.5 rounded">
                     {topic.letter}
                   </span>
-                  <span className="text-xs font-semibold text-zinc-100 group-hover:text-violet-300 transition-colors">
+                  <span className="text-xs font-semibold text-zinc-100 group-hover:text-white transition-colors">
                     {topic.name}
                   </span>
                 </div>
                 {topic.isComplete && (
-                  <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-950/40 px-1.5 py-0.5 rounded font-mono">
+                  <span className="text-[10px] font-semibold text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded font-mono">
                     COMPLETED
                   </span>
                 )}
@@ -470,10 +464,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 <div
                   className={`h-full rounded-full transition-all duration-300 ${
                     topic.isComplete
-                      ? 'bg-emerald-400'
-                      : topic.percentage > 50
-                      ? 'bg-violet-500'
-                      : 'bg-zinc-600'
+                      ? 'bg-zinc-300'
+                      : topic.percentage > 0
+                      ? 'bg-zinc-500'
+                      : 'bg-transparent'
                   }`}
                   style={{ width: `${topic.percentage}%` }}
                 />

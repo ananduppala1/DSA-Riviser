@@ -77,16 +77,16 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
   return (
     <div className="space-y-6 animate-fade-in pb-12">
       {/* Banner */}
-      <div className="bg-gradient-to-r from-[#170e10] via-[#140e11] to-[#0d0c0e] border border-rose-900/30 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/25 text-xs font-semibold text-rose-300">
-            <Flame className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-xs font-semibold text-zinc-300">
+            <Flame className="w-3.5 h-3.5 text-zinc-400" />
             <span>Targeted Weakness Elimination</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             Rapid Revision Mode
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-300 max-w-xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl leading-relaxed">
             Stop solving problems you already know. This mode isolates unsolved archetypes, lowest-completion topics, and problems you flagged for review.
           </p>
         </div>
@@ -98,7 +98,7 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
             onClick={() => setFilterMode('all-weak')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               filterMode === 'all-weak'
-                ? 'bg-rose-600 text-white shadow-md'
+                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
                 : 'text-zinc-400 hover:text-white'
             }`}
           >
@@ -109,11 +109,11 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
             onClick={() => setFilterMode('difficult-only')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${
               filterMode === 'difficult-only'
-                ? 'bg-rose-600 text-white shadow-md'
+                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
                 : 'text-zinc-400 hover:text-white'
             }`}
           >
-            <Star className="w-3 h-3 text-amber-400" />
+            <Star className="w-3 h-3 text-zinc-400" />
             <span>Starred ({difficultQuestions.length})</span>
           </button>
           <button
@@ -121,7 +121,7 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
             onClick={() => setFilterMode('core-unsolved')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               filterMode === 'core-unsolved'
-                ? 'bg-rose-600 text-white shadow-md'
+                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
                 : 'text-zinc-400 hover:text-white'
             }`}
           >
@@ -132,7 +132,7 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
             onClick={() => setFilterMode('lowest-topics')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               filterMode === 'lowest-topics'
-                ? 'bg-rose-600 text-white shadow-md'
+                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
                 : 'text-zinc-400 hover:text-white'
             }`}
           >
@@ -154,8 +154,8 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
       {/* Questions Vertical List */}
       {targetQuestions.length === 0 ? (
         <div className="py-16 text-center bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-8 space-y-3">
-          <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/20">
-            <CheckCircle2 className="w-6 h-6" />
+          <div className="w-12 h-12 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center mx-auto border border-zinc-700">
+            <CheckCircle2 className="w-6 h-6 text-zinc-300" />
           </div>
           <h2 className="text-base font-bold text-white">No weak points in this view!</h2>
           <p className="text-zinc-400 text-xs max-w-sm mx-auto">

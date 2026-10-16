@@ -141,7 +141,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
           onClick={() => setActiveTopicFilter('all')}
           className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
             activeTopicFilter === 'all'
-              ? 'bg-violet-600 text-white font-semibold shadow-sm'
+              ? 'bg-zinc-800 text-white font-medium border border-zinc-700'
               : 'bg-[#121215] text-zinc-400 hover:text-zinc-200 border border-[#1f1f25]'
           }`}
         >
@@ -159,7 +159,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
               onClick={() => setActiveTopicFilter(topic.id)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors flex items-center gap-1.5 ${
                 activeTopicFilter === topic.id
-                  ? 'bg-violet-600 text-white font-semibold shadow-sm'
+                  ? 'bg-zinc-800 text-white font-medium border border-zinc-700'
                   : 'bg-[#121215] text-zinc-400 hover:text-zinc-200 border border-[#1f1f25]'
               }`}
             >
@@ -167,9 +167,9 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
               <span
                 className={`text-[10px] font-mono ${
                   isComplete
-                    ? 'text-emerald-400 font-bold'
+                    ? 'text-zinc-200 font-bold'
                     : activeTopicFilter === topic.id
-                    ? 'text-violet-200'
+                    ? 'text-zinc-200'
                     : 'text-zinc-500'
                 }`}
               >
@@ -207,21 +207,21 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
                 <div className="flex items-center gap-3">
                   <span className="p-1 text-zinc-400 hover:text-white transition-colors">
                     {isTopicExpanded ? (
-                      <ChevronDown className="w-5 h-5 text-violet-400" />
+                      <ChevronDown className="w-5 h-5 text-zinc-300" />
                     ) : (
                       <ChevronRight className="w-5 h-5 text-zinc-500" />
                     )}
                   </span>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-violet-400 bg-violet-950/40 px-2 py-0.5 rounded">
+                      <span className="font-mono text-xs font-bold text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded">
                         {topic.letter}
                       </span>
                       <h2 className="text-base sm:text-lg font-bold text-white">
                         {topic.name}
                       </h2>
                       {isTopicComplete && (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-zinc-300 shrink-0" />
                       )}
                     </div>
                     <p className="text-xs text-zinc-400 mt-1 hidden sm:block">
@@ -238,14 +238,14 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
                     <div className="w-24 h-1.5 bg-[#202028] rounded-full overflow-hidden mt-1">
                       <div
                         className={`h-full rounded-full transition-all duration-300 ${
-                          isTopicComplete ? 'bg-emerald-400' : 'bg-violet-500'
+                          isTopicComplete ? 'bg-zinc-300' : 'bg-zinc-500'
                         }`}
                         style={{ width: `${percentage}%` }}
                       />
                     </div>
                   </div>
 
-                  <span className="font-mono text-xs font-bold text-violet-300 sm:hidden">
+                  <span className="font-mono text-xs font-bold text-zinc-300 sm:hidden">
                     {percentage}%
                   </span>
                 </div>
@@ -279,7 +279,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
                           >
                             <span className="p-0.5 text-zinc-400">
                               {isPatternExpanded ? (
-                                <ChevronDown className="w-4 h-4 text-violet-300" />
+                                <ChevronDown className="w-4 h-4 text-zinc-300" />
                               ) : (
                                 <ChevronRight className="w-4 h-4 text-zinc-500" />
                               )}
@@ -288,7 +288,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
                               <h3 className="text-sm font-bold text-zinc-100 flex items-center gap-2">
                                 <span>{patternName}</span>
                                 {isPatternComplete && (
-                                  <span className="text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/40 px-1.5 py-0.5 rounded">
+                                  <span className="text-[10px] font-mono font-semibold text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">
                                     ✓ Solved
                                   </span>
                                 )}
@@ -304,9 +304,9 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
                               <button
                                 type="button"
                                 onClick={() => onOpenPatternDetail(patternId)}
-                                className="px-2.5 py-1 rounded text-xs font-semibold text-violet-300 hover:text-white bg-violet-600/15 hover:bg-violet-600/30 border border-violet-500/30 transition-colors flex items-center gap-1.5"
+                                className="px-2.5 py-1 rounded text-xs font-medium text-zinc-300 hover:text-white bg-[#18181c] hover:bg-[#222228] border border-[#2c2c36] transition-colors flex items-center gap-1.5"
                               >
-                                <BookOpen className="w-3.5 h-3.5" />
+                                <BookOpen className="w-3.5 h-3.5 text-zinc-400" />
                                 <span className="hidden sm:inline">Blueprint & Template</span>
                                 <span className="sm:hidden">Blueprint</span>
                               </button>
@@ -330,11 +330,11 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
                                     className="flex items-center justify-between cursor-pointer py-1 text-xs font-semibold text-zinc-300 hover:text-white transition-colors"
                                   >
                                     <div className="flex items-center gap-2">
-                                      <span className="w-2 h-2 rounded-full bg-violet-500/60" />
-                                      <span className="tracking-wide">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
+                                      <span className="tracking-wide text-zinc-300">
                                         Sub-pattern: {subPatternName}
                                       </span>
-                                      <span className="text-zinc-500 font-mono">
+                                      <span className="text-zinc-500 font-mono text-[11px]">
                                         ({subQuestions.length} {subQuestions.length === 1 ? 'problem' : 'problems'})
                                       </span>
                                     </div>
@@ -345,7 +345,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
 
                                   {/* Level 4: Representative LeetCode Questions */}
                                   {isSubExpanded && (
-                                    <div className="space-y-2 pl-2 sm:pl-3 border-l-2 border-violet-900/40">
+                                    <div className="space-y-2 pl-2 sm:pl-3 border-l-2 border-zinc-800">
                                       {subQuestions.map((question) => (
                                         <QuestionCard
                                           key={question.id}

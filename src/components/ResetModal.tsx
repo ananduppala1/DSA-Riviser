@@ -37,7 +37,7 @@ export const ResetModal: React.FC<ResetModalProps> = ({ isOpen, onClose, onConfi
         </button>
 
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2.5 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-400">
+          <div className="p-2.5 rounded-lg bg-zinc-800 border border-zinc-700 text-zinc-300">
             <AlertTriangle className="w-6 h-6" />
           </div>
           <h2 id="reset-modal-title" className="text-lg font-semibold text-zinc-100">
@@ -63,7 +63,7 @@ export const ResetModal: React.FC<ResetModalProps> = ({ isOpen, onClose, onConfi
               onConfirm();
               onClose();
             }}
-            className="px-4 py-2 text-sm font-medium text-white bg-rose-600 hover:bg-rose-500 rounded-lg shadow-sm transition-colors"
+            className="px-4 py-2 text-sm font-medium text-white bg-zinc-800 hover:bg-zinc-700 border border-zinc-600 rounded-lg shadow-sm transition-colors"
           >
             Reset Everything
           </button>

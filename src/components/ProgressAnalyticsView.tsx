@@ -78,7 +78,7 @@ export function ProgressAnalyticsView({
             </span>
             <span className="text-xs text-zinc-500 font-mono">/ 98</span>
           </div>
-          <div className="mt-2 text-xs font-mono font-bold text-violet-400 tabular-nums">
+          <div className="mt-2 text-xs font-mono font-bold text-zinc-300 tabular-nums">
             {overallPercentage}% vault coverage
           </div>
         </div>
@@ -87,7 +87,7 @@ export function ProgressAnalyticsView({
           <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider block mb-1">
             Solved Today
           </span>
-          <div className="text-3xl font-extrabold text-emerald-400 font-mono tabular-nums">
+          <div className="text-3xl font-extrabold text-zinc-100 font-mono tabular-nums">
             {solvedTodayCount}
           </div>
           <div className="mt-2 text-xs text-zinc-500">
@@ -99,8 +99,8 @@ export function ProgressAnalyticsView({
           <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider block mb-1">
             Active Streak
           </span>
-          <div className="flex items-center gap-1.5 text-amber-400">
-            <Flame className="w-6 h-6 fill-amber-400/20" />
+          <div className="flex items-center gap-1.5 text-zinc-200">
+            <Flame className="w-6 h-6 text-zinc-400" />
             <span className="text-3xl font-extrabold font-mono tabular-nums">{streak.current}d</span>
           </div>
           <div className="mt-2 text-xs text-zinc-500 font-mono">
@@ -133,7 +133,7 @@ export function ProgressAnalyticsView({
           {/* Easy */}
           <div className="bg-[#121216] border border-[#22222a] rounded-lg p-4 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
                 Easy Archetypes
               </span>
               <span className="font-mono text-xs font-bold text-zinc-200 tabular-nums">
@@ -142,7 +142,7 @@ export function ProgressAnalyticsView({
             </div>
             <div className="w-full h-2 bg-[#1d1d26] rounded-full overflow-hidden">
               <div
-                className="h-full bg-emerald-400 rounded-full transition-all duration-300"
+                className="h-full bg-zinc-300 rounded-full transition-all duration-300"
                 style={{ width: `${easyPercentage}%` }}
               />
             </div>
@@ -155,7 +155,7 @@ export function ProgressAnalyticsView({
           {/* Medium */}
           <div className="bg-[#121216] border border-[#22222a] rounded-lg p-4 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
                 Medium Archetypes
               </span>
               <span className="font-mono text-xs font-bold text-zinc-200 tabular-nums">
@@ -164,7 +164,7 @@ export function ProgressAnalyticsView({
             </div>
             <div className="w-full h-2 bg-[#1d1d26] rounded-full overflow-hidden">
               <div
-                className="h-full bg-amber-400 rounded-full transition-all duration-300"
+                className="h-full bg-zinc-400 rounded-full transition-all duration-300"
                 style={{ width: `${mediumPercentage}%` }}
               />
             </div>
@@ -177,7 +177,7 @@ export function ProgressAnalyticsView({
           {/* Hard */}
           <div className="bg-[#121216] border border-[#22222a] rounded-lg p-4 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
                 Hard Reinforcement
               </span>
               <span className="font-mono text-xs font-bold text-zinc-200 tabular-nums">
@@ -186,7 +186,7 @@ export function ProgressAnalyticsView({
             </div>
             <div className="w-full h-2 bg-[#1d1d26] rounded-full overflow-hidden">
               <div
-                className="h-full bg-rose-400 rounded-full transition-all duration-300"
+                className="h-full bg-zinc-500 rounded-full transition-all duration-300"
                 style={{ width: `${hardPercentage}%` }}
               />
             </div>
@@ -212,12 +212,12 @@ export function ProgressAnalyticsView({
             <div key={t.id} className="space-y-1.5">
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-violet-400 w-5">
+                  <span className="font-mono text-xs font-bold text-zinc-400 w-5">
                     {t.letter}.
                   </span>
                   <span className="font-semibold text-zinc-200">{t.name}</span>
                   {t.isComplete && (
-                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-950/40 px-1 rounded">
+                    <span className="text-[10px] font-mono text-zinc-300 font-bold bg-zinc-800 px-1.5 py-0.5 rounded">
                       ✓ DONE
                     </span>
                   )}
@@ -236,11 +236,9 @@ export function ProgressAnalyticsView({
                 <div
                   className={`h-full rounded-full transition-all duration-300 ${
                     t.isComplete
-                      ? 'bg-emerald-400'
-                      : t.percentage > 50
-                      ? 'bg-violet-500'
+                      ? 'bg-zinc-300'
                       : t.percentage > 0
-                      ? 'bg-violet-600/70'
+                      ? 'bg-zinc-500'
                       : 'bg-transparent'
                   }`}
                   style={{ width: `${t.percentage}%` }}

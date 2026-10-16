@@ -38,7 +38,7 @@ export const PatternDetailModal: React.FC<PatternDetailModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#222222] bg-[#141414]">
           <div>
-            <div className="text-xs font-semibold text-violet-400 uppercase tracking-wider mb-0.5">
+            <div className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-0.5">
               Pattern Blueprint
             </div>
             <h2 className="text-lg sm:text-xl font-bold text-zinc-100">{detail.name}</h2>
@@ -64,8 +64,8 @@ export const PatternDetailModal: React.FC<PatternDetailModalProps> = ({
             </div>
 
             <div className="pt-2 border-t border-[#222222]">
-              <div className="flex items-center gap-1.5 text-violet-400 font-semibold text-xs uppercase tracking-wider mb-1">
-                <Lightbulb className="w-3.5 h-3.5" />
+              <div className="flex items-center gap-1.5 text-zinc-300 font-semibold text-xs uppercase tracking-wider mb-1">
+                <Lightbulb className="w-3.5 h-3.5 text-zinc-400" />
                 <span>When Do I Think Of This?</span>
               </div>
               <p className="text-zinc-300 italic font-medium leading-relaxed bg-[#101010] p-3 rounded-lg border border-[#202020]">
@@ -85,7 +85,7 @@ export const PatternDetailModal: React.FC<PatternDetailModalProps> = ({
                   key={idx}
                   className="bg-[#141414] border border-[#222222] px-3.5 py-2 rounded-lg text-xs font-medium text-zinc-200 flex items-center gap-2"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 shrink-0" />
                   <span>{v}</span>
                 </div>
               ))}
@@ -133,33 +133,33 @@ export const PatternDetailModal: React.FC<PatternDetailModalProps> = ({
 
           {/* Pattern Differentiation (e.g. Sliding Window vs Prefix Sum, Two Pointers vs Sliding Window, etc.) */}
           {detail.comparison && (
-            <div className="bg-[#121417] border border-[#1f2733] rounded-xl p-4">
-              <h4 className="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-3">
+            <div className="bg-[#121215] border border-[#222226] rounded-xl p-4">
+              <h4 className="text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-3">
                 {detail.comparison.title}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="bg-[#0b0e12] p-3 rounded-lg border border-[#1a222c]">
+                <div className="bg-[#0b0b0e] p-3 rounded-lg border border-[#1d1d22]">
                   <span className="font-semibold text-zinc-100 block mb-2">
                     {detail.comparison.topicA}
                   </span>
                   <ul className="space-y-1 text-zinc-400">
                     {detail.comparison.pointsA.map((p, idx) => (
                       <li key={idx} className="flex items-start gap-1.5">
-                        <span className="text-sky-400 shrink-0">·</span>
+                        <span className="text-zinc-500 shrink-0">·</span>
                         <span>{p}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="bg-[#0b0e12] p-3 rounded-lg border border-[#1a222c]">
+                <div className="bg-[#0b0b0e] p-3 rounded-lg border border-[#1d1d22]">
                   <span className="font-semibold text-zinc-100 block mb-2">
                     {detail.comparison.topicB}
                   </span>
                   <ul className="space-y-1 text-zinc-400">
                     {detail.comparison.pointsB.map((p, idx) => (
                       <li key={idx} className="flex items-start gap-1.5">
-                        <span className="text-violet-400 shrink-0">·</span>
+                        <span className="text-zinc-500 shrink-0">·</span>
                         <span>{p}</span>
                       </li>
                     ))}
@@ -182,7 +182,7 @@ export const PatternDetailModal: React.FC<PatternDetailModalProps> = ({
                     key={q.id}
                     className={`flex items-center justify-between p-3 rounded-lg border text-xs ${
                       isSolved
-                        ? 'bg-[#0d120f] border-emerald-900/40 text-zinc-200'
+                        ? 'bg-[#0b0b0e] border-zinc-800 text-zinc-200'
                         : 'bg-[#141414] border-[#222222] text-zinc-300'
                     }`}
                   >
@@ -192,10 +192,10 @@ export const PatternDetailModal: React.FC<PatternDetailModalProps> = ({
                       <span
                         className={`font-mono text-[10px] font-semibold px-1.5 py-0.5 rounded ${
                           q.difficulty === 'Easy'
-                            ? 'text-emerald-400 bg-emerald-950/30'
+                            ? 'text-emerald-400/80 bg-zinc-800'
                             : q.difficulty === 'Medium'
-                            ? 'text-amber-400 bg-amber-950/30'
-                            : 'text-rose-400 bg-rose-950/30'
+                            ? 'text-amber-400/80 bg-zinc-800'
+                            : 'text-rose-400/80 bg-zinc-800'
                         }`}
                       >
                         {q.difficulty}
@@ -218,7 +218,7 @@ export const PatternDetailModal: React.FC<PatternDetailModalProps> = ({
                         onClick={() => onToggleSolved(q.id)}
                         className={`px-2 py-1 rounded text-[11px] font-semibold transition-colors ${
                           isSolved
-                            ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                            ? 'bg-zinc-800 text-zinc-200 border border-zinc-700'
                             : 'bg-[#1c1c1c] text-zinc-300 border border-[#2b2b2b] hover:bg-[#282828]'
                         }`}
                       >

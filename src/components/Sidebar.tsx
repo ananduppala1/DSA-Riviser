@@ -50,13 +50,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
     {
       tab: 'quick-revision',
       label: 'Quick Revision',
-      icon: <Zap className="w-4 h-4 text-amber-400" />,
+      icon: <Zap className="w-4 h-4 text-zinc-400" />,
       badge: '2-3d',
     },
     {
       tab: 'revision-mode',
       label: 'Revision Mode',
-      icon: <Flame className="w-4 h-4 text-rose-400" />,
+      icon: <Flame className="w-4 h-4 text-zinc-400" />,
       badge: 'Focus',
     },
     {
@@ -81,14 +81,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Brand Header */}
       <div className="p-5 border-b border-[#1a1a1a]">
         <div className="flex items-center gap-2.5">
-          {/* <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-violet-950/40 text-sm tracking-wider">
+          <div className="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700/80 flex items-center justify-center font-bold text-zinc-100 text-sm tracking-wider">
             PV
-          </div> */}
-          <img
-            src="/BugBros Neon Coding Emblem.png"
-            alt="BugBros"
-            className="w-8 h-8 rounded-lg object-cover shadow-lg shadow-violet-950/40"
-          />
+          </div>
           <div>
             <h1 className="text-sm font-bold text-zinc-100 tracking-tight leading-none">
               DSA Pattern Vault
@@ -111,20 +106,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={() => handleNavClick(item.tab)}
               className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all ${
                 isActive
-                  ? 'bg-violet-600/15 text-violet-300 border border-violet-500/25 shadow-sm'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#121212]'
+                  ? 'bg-zinc-800/90 text-white border border-zinc-700/70 shadow-sm'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#141416]'
               }`}
             >
               <div className="flex items-center gap-2.5">
-                <span className={isActive ? 'text-violet-400' : 'text-zinc-400'}>{item.icon}</span>
+                <span className={isActive ? 'text-zinc-100' : 'text-zinc-400'}>{item.icon}</span>
                 <span>{item.label}</span>
               </div>
               {item.badge && (
                 <span
                   className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
                     isActive
-                      ? 'bg-violet-500/20 text-violet-300'
-                      : 'bg-[#181818] text-zinc-400'
+                      ? 'bg-zinc-700 text-zinc-200'
+                      : 'bg-[#181818] text-zinc-500'
                   }`}
                 >
                   {item.badge}
@@ -147,16 +142,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Progress Bar */}
         <div className="w-full h-1.5 bg-[#1f1f1f] rounded-full overflow-hidden mb-3">
           <div
-            className="h-full bg-gradient-to-r from-violet-500 to-emerald-400 rounded-full transition-all duration-300"
+            className="h-full bg-zinc-300 rounded-full transition-all duration-300"
             style={{ width: `${percentage}%` }}
           />
         </div>
 
         <div className="flex items-center justify-between text-[11px] text-zinc-500">
           <span className="font-mono tabular-nums">{percentage}% complete</span>
-          <div className="flex items-center gap-1 text-amber-400 font-mono">
-            <StreakIcon className="w-3.5 h-3.5 fill-amber-400/20" />
-            <span className="font-semibold tabular-nums">{streakCount}d streak</span>
+          <div className="flex items-center gap-1 text-zinc-400 font-mono">
+            <StreakIcon className="w-3.5 h-3.5 text-zinc-300" />
+            <span className="font-semibold tabular-nums text-zinc-200">{streakCount}d streak</span>
           </div>
         </div>
       </div>

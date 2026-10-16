@@ -77,7 +77,7 @@ export function SettingsView({
       {/* Progress Management Section */}
       <section className="bg-[#0f0f12] border border-[#202026] rounded-xl p-5 sm:p-6 space-y-6">
         <div className="flex items-center gap-2 pb-3 border-b border-[#1c1c24]">
-          <Database className="w-5 h-5 text-violet-400" />
+          <Database className="w-5 h-5 text-zinc-400" />
           <h2 className="text-base font-bold text-white">Progress Backup & Restoration</h2>
         </div>
 
@@ -86,7 +86,7 @@ export function SettingsView({
           <div className="bg-[#141418] border border-[#23232c] rounded-xl p-4 flex flex-col justify-between space-y-3">
             <div>
               <div className="flex items-center gap-2 text-sm font-semibold text-zinc-100 mb-1">
-                <Download className="w-4 h-4 text-emerald-400" />
+                <Download className="w-4 h-4 text-zinc-400" />
                 <span>Export Progress</span>
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed">
@@ -97,7 +97,7 @@ export function SettingsView({
             <button
               type="button"
               onClick={onExport}
-              className="w-full py-2 px-3 rounded-lg text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 transition-colors flex items-center justify-center gap-2 shadow-sm"
+              className="w-full py-2 px-3 rounded-lg text-xs font-semibold text-zinc-950 bg-zinc-100 hover:bg-white transition-colors flex items-center justify-center gap-2 shadow-sm"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download JSON Backup</span>
@@ -108,7 +108,7 @@ export function SettingsView({
           <div className="bg-[#141418] border border-[#23232c] rounded-xl p-4 flex flex-col justify-between space-y-3">
             <div>
               <div className="flex items-center gap-2 text-sm font-semibold text-zinc-100 mb-1">
-                <Upload className="w-4 h-4 text-violet-400" />
+                <Upload className="w-4 h-4 text-zinc-400" />
                 <span>Import Backup File</span>
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed">
@@ -146,19 +146,19 @@ export function SettingsView({
               value={importText}
               onChange={(e) => setImportText(e.target.value)}
               placeholder='{"solvedQuestions":["lc-1","lc-217"],...}'
-              className="flex-1 bg-[#121216] border border-[#252530] rounded-lg px-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-600 font-mono focus:outline-none focus:border-violet-500"
+              className="flex-1 bg-[#121216] border border-[#252530] rounded-lg px-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-600 font-mono focus:outline-none focus:border-zinc-500"
             />
             <button
               type="button"
               onClick={handleManualImport}
               disabled={!importText.trim()}
-              className="px-4 py-1.5 text-xs font-semibold text-white bg-violet-600 hover:bg-violet-500 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors"
+              className="px-4 py-1.5 text-xs font-semibold text-white bg-zinc-800 hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed border border-zinc-700 rounded-lg transition-colors"
             >
               Restore
             </button>
           </div>
           {importSuccess && (
-            <p className="text-xs text-emerald-400 flex items-center gap-1 font-medium">
+            <p className="text-xs text-zinc-300 flex items-center gap-1 font-medium">
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>Progress restored successfully!</span>
             </p>
@@ -172,7 +172,7 @@ export function SettingsView({
       {/* Global Reset Section */}
       <section className="bg-[#0f0f12] border border-[#202026] rounded-xl p-5 sm:p-6 space-y-4">
         <div className="flex items-center gap-2 pb-3 border-b border-[#1c1c24]">
-          <Trash2 className="w-5 h-5 text-rose-400" />
+          <Trash2 className="w-5 h-5 text-zinc-400" />
           <h2 className="text-base font-bold text-white">Reset Vault State</h2>
         </div>
 
@@ -184,7 +184,7 @@ export function SettingsView({
           <button
             type="button"
             onClick={onOpenResetModal}
-            className="px-4 py-2 text-xs font-semibold text-rose-400 hover:text-white bg-rose-950/20 hover:bg-rose-900/40 border border-rose-900/50 rounded-lg transition-colors flex items-center gap-2"
+            className="px-4 py-2 text-xs font-semibold text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-lg transition-colors flex items-center gap-2"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Reset All Progress...</span>
@@ -195,7 +195,7 @@ export function SettingsView({
       {/* Curriculum Data Integrity Verification */}
       <section className="bg-[#0f0f12] border border-[#202026] rounded-xl p-5 sm:p-6 space-y-4">
         <div className="flex items-center gap-2 pb-3 border-b border-[#1c1c24]">
-          <ShieldCheck className="w-5 h-5 text-emerald-400" />
+          <ShieldCheck className="w-5 h-5 text-zinc-400" />
           <h2 className="text-base font-bold text-white">Curriculum Verification & Specs</h2>
         </div>
 
@@ -209,21 +209,21 @@ export function SettingsView({
 
           <div className="p-3 rounded-lg bg-[#141418] border border-[#23232c]">
             <span className="text-zinc-500 block text-[11px] mb-0.5">Unique IDs</span>
-            <span className="font-mono text-base font-bold text-emerald-400 tabular-nums">
+            <span className="font-mono text-base font-bold text-zinc-100 tabular-nums">
               {uniqueIds} / 98 (0 dupes)
             </span>
           </div>
 
           <div className="p-3 rounded-lg bg-[#141418] border border-[#23232c]">
             <span className="text-zinc-500 block text-[11px] mb-0.5">LeetCode URLs</span>
-            <span className="font-mono text-base font-bold text-emerald-400">
+            <span className="font-mono text-base font-bold text-zinc-100">
               {allUrlsValid ? '100% Official' : 'Error'}
             </span>
           </div>
 
           <div className="p-3 rounded-lg bg-[#141418] border border-[#23232c]">
             <span className="text-zinc-500 block text-[11px] mb-0.5">Total Main Topics</span>
-            <span className="font-mono text-base font-bold text-violet-400 tabular-nums">
+            <span className="font-mono text-base font-bold text-zinc-100 tabular-nums">
               18 (A through R)
             </span>
           </div>

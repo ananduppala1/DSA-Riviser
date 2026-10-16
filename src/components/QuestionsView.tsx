@@ -140,7 +140,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
           {hasActiveFilters && (
             <button
               onClick={resetFilters}
-              className="text-xs text-violet-400 hover:text-violet-300 font-medium flex items-center gap-1"
+              className="text-xs text-zinc-400 hover:text-white font-medium flex items-center gap-1 transition-colors"
             >
               <X className="w-3.5 h-3.5" />
               <span>Reset Filters</span>
@@ -159,7 +159,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Filter by title, problem number (#15), topic, pattern, or technique clue..."
-            className="w-full bg-[#15151a] border border-[#23232b] rounded-lg pl-9 pr-8 py-2 text-xs sm:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-violet-500 font-sans"
+            className="w-full bg-[#15151a] border border-[#23232b] rounded-lg pl-9 pr-8 py-2 text-xs sm:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 font-sans"
           />
           {searchQuery && (
             <button
@@ -179,7 +179,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
             <select
               value={selectedTopic}
               onChange={(e) => setSelectedTopic(e.target.value)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500"
             >
               <option value="all">All Topics (18)</option>
               {TOPICS.map((t) => (
@@ -196,7 +196,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
             <select
               value={selectedDifficulty}
               onChange={(e) => setSelectedDifficulty(e.target.value)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500"
             >
               <option value="all">All Difficulties</option>
               <option value="Easy">Easy</option>
@@ -211,7 +211,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500"
             >
               <option value="all">All Statuses</option>
               <option value="unsolved">Unsolved</option>
@@ -225,7 +225,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
             <select
               value={selectedPriority}
               onChange={(e) => setSelectedPriority(e.target.value)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500"
             >
               <option value="all">All Priorities</option>
               <option value="core">Core Archetypes</option>
@@ -242,7 +242,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-violet-500 font-medium"
+              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500 font-medium"
             >
               <option value="unsolved-first">Unsolved First (Default)</option>
               <option value="solved-first">Solved First</option>
@@ -263,7 +263,7 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
           </p>
           <button
             onClick={resetFilters}
-            className="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-violet-600 hover:bg-violet-500 transition-colors"
+            className="px-4 py-2 rounded-lg text-xs font-semibold text-zinc-900 bg-zinc-100 hover:bg-white transition-colors"
           >
             Clear Filters
           </button>

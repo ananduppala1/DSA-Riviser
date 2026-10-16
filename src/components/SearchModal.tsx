@@ -104,8 +104,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   key={q.id}
                   className={`group flex items-center justify-between p-3 rounded-lg border transition-all ${
                     isSolved
-                      ? 'bg-[#0d1310] border-emerald-950/40 hover:border-emerald-800/60'
-                      : 'bg-[#121212] border-[#1f1f1f] hover:border-[#333333]'
+                      ? 'bg-[#0b0b0e] border-zinc-800'
+                      : 'bg-[#121212] border-[#1f1f1f] hover:border-zinc-700'
                   }`}
                 >
                   <div
@@ -120,16 +120,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         #{q.number}
                       </span>
                       <span className="text-zinc-600 text-xs">·</span>
-                      <span className="text-sm font-semibold text-zinc-100 group-hover:text-violet-300 transition-colors">
+                      <span className="text-sm font-semibold text-zinc-100 group-hover:text-zinc-200 transition-colors">
                         {q.title}
                       </span>
                       <span
                         className={`text-[10px] font-mono px-1.5 py-0.2 rounded font-semibold ${
                           q.difficulty === 'Easy'
-                            ? 'text-emerald-400 bg-emerald-950/40'
+                            ? 'text-emerald-400/80 bg-zinc-800'
                             : q.difficulty === 'Medium'
-                            ? 'text-amber-400 bg-amber-950/40'
-                            : 'text-rose-400 bg-rose-950/40'
+                            ? 'text-amber-400/80 bg-zinc-800'
+                            : 'text-rose-400/80 bg-zinc-800'
                         }`}
                       >
                         {q.difficulty}
@@ -161,11 +161,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       onClick={() => onToggleSolved(q.id)}
                       className={`px-2 py-1 rounded text-xs font-semibold flex items-center gap-1 transition-colors ${
                         isSolved
-                          ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                          ? 'bg-zinc-800 text-zinc-200 border border-zinc-700'
                           : 'bg-[#1e1e1e] text-zinc-300 border border-[#2e2e2e] hover:bg-[#2a2a2a]'
                       }`}
                     >
-                      {isSolved && <Check className="w-3 h-3 text-emerald-400" />}
+                      {isSolved && <Check className="w-3 h-3 text-zinc-300" />}
                       <span>{isSolved ? 'Solved' : 'Mark'}</span>
                     </button>
                   </div>

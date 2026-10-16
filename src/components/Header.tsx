@@ -87,13 +87,13 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           type="button"
           onClick={() => onSelectTab('quick-revision')}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
             currentTab === 'quick-revision'
-              ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-              : 'bg-[#141414] text-zinc-300 hover:text-white border border-[#222222] hover:bg-[#1a1a1a]'
+              ? 'bg-zinc-800 text-zinc-100 border border-zinc-700 shadow-sm'
+              : 'bg-[#141416] text-zinc-400 hover:text-white border border-[#24242c] hover:bg-[#1c1c22]'
           }`}
         >
-          <Zap className="w-3.5 h-3.5 text-amber-400" />
+          <Zap className="w-3.5 h-3.5 text-zinc-400" />
           <span className="hidden sm:inline">Quick</span>
           <span>Revision</span>
         </button>
@@ -101,13 +101,13 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           type="button"
           onClick={() => onSelectTab('revision-mode')}
-          className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
+          className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
             currentTab === 'revision-mode'
-              ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40'
-              : 'bg-[#141414] text-zinc-300 hover:text-white border border-[#222222] hover:bg-[#1a1a1a]'
+              ? 'bg-zinc-800 text-zinc-100 border border-zinc-700 shadow-sm'
+              : 'bg-[#141416] text-zinc-400 hover:text-white border border-[#24242c] hover:bg-[#1c1c22]'
           }`}
         >
-          <Flame className="w-3.5 h-3.5 text-rose-400" />
+          <Flame className="w-3.5 h-3.5 text-zinc-400" />
           <span>Focus Mode</span>
         </button>
       </div>
