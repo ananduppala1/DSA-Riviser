@@ -77,29 +77,29 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
   return (
     <div className="space-y-6 animate-fade-in pb-12">
       {/* Banner */}
-      <div className="bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="bg-[#121C2B] border border-[#304055] rounded-xl p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-xs font-semibold text-zinc-300">
-            <Flame className="w-3.5 h-3.5 text-zinc-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3A3026] border border-[#D9AD70]/40 text-xs font-semibold text-[#E7BE88]">
+            <Flame className="w-3.5 h-3.5 text-[#D9AD70]" />
             <span>Targeted Weakness Elimination</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#E7EDF5] tracking-tight">
             Rapid Revision Mode
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#A6B3C5] max-w-xl leading-relaxed">
             Stop solving problems you already know. This mode isolates unsolved archetypes, lowest-completion topics, and problems you flagged for review.
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#0a0a0c] border border-[#222226] rounded-xl self-stretch md:self-auto">
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#0E1522] border border-[#304055] rounded-xl self-stretch md:self-auto">
           <button
             type="button"
             onClick={() => setFilterMode('all-weak')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               filterMode === 'all-weak'
-                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-[#3A3026] text-[#E7BE88] border border-[#D9AD70]/50 shadow-sm'
+                : 'text-[#A6B3C5] hover:text-[#E7EDF5]'
             }`}
           >
             All Weak Points
@@ -109,11 +109,11 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
             onClick={() => setFilterMode('difficult-only')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${
               filterMode === 'difficult-only'
-                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-[#3A3026] text-[#E7BE88] border border-[#D9AD70]/50 shadow-sm'
+                : 'text-[#A6B3C5] hover:text-[#E7EDF5]'
             }`}
           >
-            <Star className="w-3 h-3 text-zinc-400" />
+            <Star className="w-3 h-3 text-[#D9AD70]" />
             <span>Starred ({difficultQuestions.length})</span>
           </button>
           <button
@@ -121,8 +121,8 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
             onClick={() => setFilterMode('core-unsolved')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               filterMode === 'core-unsolved'
-                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-[#3A3026] text-[#E7BE88] border border-[#D9AD70]/50 shadow-sm'
+                : 'text-[#A6B3C5] hover:text-[#E7EDF5]'
             }`}
           >
             Core Unsolved
@@ -132,8 +132,8 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
             onClick={() => setFilterMode('lowest-topics')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               filterMode === 'lowest-topics'
-                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-[#3A3026] text-[#E7BE88] border border-[#D9AD70]/50 shadow-sm'
+                : 'text-[#A6B3C5] hover:text-[#E7EDF5]'
             }`}
           >
             Weakest Topics
@@ -142,23 +142,23 @@ export const RevisionModeView: React.FC<RevisionModeViewProps> = ({
       </div>
 
       {/* Target Problems Results Header */}
-      <div className="flex items-center justify-between text-xs text-zinc-400 px-1">
+      <div className="flex items-center justify-between text-xs text-[#A6B3C5] px-1">
         <div>
-          Focus Queue: <span className="font-bold text-zinc-100">{targetQuestions.length}</span> problems prioritized for your revision session
+          Focus Queue: <span className="font-bold text-[#E7EDF5]">{targetQuestions.length}</span> problems prioritized for your revision session
         </div>
-        <div className="text-zinc-500 font-mono">
-          Tip: Hit star on any card to add it to your priority review
+        <div className="text-[#7F90A6] font-mono">
+          Tip: Hit bookmark on any card to add it to your priority review
         </div>
       </div>
 
       {/* Questions Vertical List */}
       {targetQuestions.length === 0 ? (
-        <div className="py-16 text-center bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-8 space-y-3">
-          <div className="w-12 h-12 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center mx-auto border border-zinc-700">
-            <CheckCircle2 className="w-6 h-6 text-zinc-300" />
+        <div className="py-16 text-center bg-[#121C2B] border border-[#304055] rounded-xl p-8 space-y-3">
+          <div className="w-12 h-12 rounded-full bg-[#1D3A32] text-[#83C7A1] flex items-center justify-center mx-auto border border-[#2D5549]">
+            <CheckCircle2 className="w-6 h-6 text-[#83C7A1]" />
           </div>
-          <h2 className="text-base font-bold text-white">No weak points in this view!</h2>
-          <p className="text-zinc-400 text-xs max-w-sm mx-auto">
+          <h2 className="text-base font-bold text-[#E7EDF5]">No weak points in this view!</h2>
+          <p className="text-[#A6B3C5] text-xs max-w-sm mx-auto">
             You've solved the core problems or haven't starred any difficult ones yet. Excellent progress!
           </p>
         </div>

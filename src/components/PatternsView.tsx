@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   Maximize2,
   Minimize2,
-  Filter,
 } from 'lucide-react';
 
 interface PatternsViewProps {
@@ -37,7 +36,6 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
   const [expandedTopics, setExpandedTopics] = useState<Record<string, boolean>>(() => {
     const init: Record<string, boolean> = {};
     TOPICS.forEach((t, i) => {
-      // expand first topic or requested topic by default
       init[t.id] = initialTopicId ? t.id === initialTopicId : i === 0;
     });
     return init;
@@ -49,7 +47,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
   // Level 3 sub-pattern expansions
   const [expandedSubPatterns, setExpandedSubPatterns] = useState<Record<string, boolean>>({});
 
-  // Active topic filter tab (optional quick selector)
+  // Active topic filter tab
   const [activeTopicFilter, setActiveTopicFilter] = useState<string>(initialTopicId || 'all');
 
   useEffect(() => {
@@ -104,12 +102,12 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
   return (
     <div className="space-y-6 animate-fade-in pb-12">
       {/* View Header with Controls */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-4 sm:p-5">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#121C2B] border border-[#304055] rounded-xl p-4 sm:p-5">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#E7EDF5] tracking-tight">
             Algorithmic Pattern Hierarchy
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+          <p className="text-xs sm:text-sm text-[#A6B3C5] mt-1">
             4-Level Structural Breakdown: Topic → Pattern → Sub-pattern → LeetCode Archetypes
           </p>
         </div>
@@ -118,7 +116,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
           <button
             type="button"
             onClick={expandAll}
-            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-300 hover:text-white bg-[#17171a] hover:bg-[#202025] border border-[#27272f] transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#A6B3C5] hover:text-[#E7EDF5] bg-[#182436] hover:bg-[#202F43] border border-[#304055] transition-colors flex items-center gap-1.5"
           >
             <Maximize2 className="w-3.5 h-3.5" />
             <span>Expand All</span>
@@ -126,7 +124,7 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
           <button
             type="button"
             onClick={collapseAll}
-            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-300 hover:text-white bg-[#17171a] hover:bg-[#202025] border border-[#27272f] transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#A6B3C5] hover:text-[#E7EDF5] bg-[#182436] hover:bg-[#202F43] border border-[#304055] transition-colors flex items-center gap-1.5"
           >
             <Minimize2 className="w-3.5 h-3.5" />
             <span>Collapse All</span>
@@ -141,8 +139,8 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
           onClick={() => setActiveTopicFilter('all')}
           className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
             activeTopicFilter === 'all'
-              ? 'bg-zinc-800 text-white font-medium border border-zinc-700'
-              : 'bg-[#121215] text-zinc-400 hover:text-zinc-200 border border-[#1f1f25]'
+              ? 'bg-[#243E48] text-[#E7EDF5] border border-[#55B7A8]/50 shadow-xs'
+              : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055]'
           }`}
         >
           All 18 Topics
@@ -159,18 +157,18 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
               onClick={() => setActiveTopicFilter(topic.id)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors flex items-center gap-1.5 ${
                 activeTopicFilter === topic.id
-                  ? 'bg-zinc-800 text-white font-medium border border-zinc-700'
-                  : 'bg-[#121215] text-zinc-400 hover:text-zinc-200 border border-[#1f1f25]'
+                  ? 'bg-[#243E48] text-[#E7EDF5] border border-[#55B7A8]/50 shadow-xs'
+                  : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055]'
               }`}
             >
               <span>{topic.shortName}</span>
               <span
                 className={`text-[10px] font-mono ${
                   isComplete
-                    ? 'text-zinc-200 font-bold'
+                    ? 'text-[#83C7A1] font-bold'
                     : activeTopicFilter === topic.id
-                    ? 'text-zinc-200'
-                    : 'text-zinc-500'
+                    ? 'text-[#70C8B9]'
+                    : 'text-[#7F90A6]'
                 }`}
               >
                 {solved}/{topicQuestions.length}
@@ -189,42 +187,41 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
           const isTopicComplete = solvedInTopic === topicQuestions.length && topicQuestions.length > 0;
           const percentage = topicQuestions.length > 0 ? Math.round((solvedInTopic / topicQuestions.length) * 100) : 0;
 
-          // Unique patterns in this topic
           const patternsInTopic = Array.from(new Set(topicQuestions.map((q) => q.pattern)));
 
           return (
             <div
               key={topic.id}
-              className="bg-[#0c0c0e] border border-[#1e1e23] rounded-xl overflow-hidden transition-all"
+              className="bg-[#121C2B] border border-[#304055] rounded-xl overflow-hidden transition-all shadow-xs"
             >
               {/* Level 1: Topic Bar */}
               <div
                 onClick={() => toggleTopic(topic.id)}
                 className={`p-4 sm:p-5 flex items-center justify-between cursor-pointer transition-colors ${
-                  isTopicExpanded ? 'bg-[#131317]' : 'hover:bg-[#111114]'
+                  isTopicExpanded ? 'bg-[#182436]' : 'hover:bg-[#182436]/70'
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <span className="p-1 text-zinc-400 hover:text-white transition-colors">
+                  <span className="p-1 text-[#7F90A6] hover:text-[#E7EDF5] transition-colors">
                     {isTopicExpanded ? (
-                      <ChevronDown className="w-5 h-5 text-zinc-300" />
+                      <ChevronDown className="w-5 h-5 text-[#A6B3C5]" />
                     ) : (
-                      <ChevronRight className="w-5 h-5 text-zinc-500" />
+                      <ChevronRight className="w-5 h-5 text-[#7F90A6]" />
                     )}
                   </span>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded">
+                      <span className="font-mono text-xs font-bold text-[#70C8B9] bg-[#203D41] border border-[#55B7A8]/30 px-2 py-0.5 rounded">
                         {topic.letter}
                       </span>
-                      <h2 className="text-base sm:text-lg font-bold text-white">
+                      <h2 className="text-base sm:text-lg font-bold text-[#E7EDF5]">
                         {topic.name}
                       </h2>
                       {isTopicComplete && (
-                        <CheckCircle2 className="w-4 h-4 text-zinc-300 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#83C7A1] shrink-0" />
                       )}
                     </div>
-                    <p className="text-xs text-zinc-400 mt-1 hidden sm:block">
+                    <p className="text-xs text-[#A6B3C5] mt-1 hidden sm:block">
                       {topic.description}
                     </p>
                   </div>
@@ -232,20 +229,20 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
 
                 <div className="flex items-center gap-4 shrink-0">
                   <div className="text-right hidden sm:block">
-                    <span className="font-mono text-xs font-bold text-zinc-200 tabular-nums">
+                    <span className="font-mono text-xs font-bold text-[#E7EDF5] tabular-nums">
                       {solvedInTopic} / {topicQuestions.length} Solved
                     </span>
-                    <div className="w-24 h-1.5 bg-[#202028] rounded-full overflow-hidden mt-1">
+                    <div className="w-24 h-1.5 bg-[#202F43] rounded-full overflow-hidden mt-1">
                       <div
                         className={`h-full rounded-full transition-all duration-300 ${
-                          isTopicComplete ? 'bg-zinc-300' : 'bg-zinc-500'
+                          isTopicComplete ? 'bg-[#83C7A1]' : 'bg-[#55B7A8]'
                         }`}
                         style={{ width: `${percentage}%` }}
                       />
                     </div>
                   </div>
 
-                  <span className="font-mono text-xs font-bold text-zinc-300 sm:hidden">
+                  <span className="font-mono text-xs font-bold text-[#A6B3C5] sm:hidden">
                     {percentage}%
                   </span>
                 </div>
@@ -253,47 +250,46 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
 
               {/* Level 1 Expanded Body */}
               {isTopicExpanded && (
-                <div className="border-t border-[#1a1a20] p-3 sm:p-5 space-y-4 bg-[#08080a]">
+                <div className="border-t border-[#304055] p-3 sm:p-5 space-y-4 bg-[#0E1522]">
                   {patternsInTopic.map((patternName) => {
                     const patternKey = `${topic.id}__${patternName}`;
                     const patternQuestions = topicQuestions.filter((q) => q.pattern === patternName);
                     const solvedInPattern = patternQuestions.filter((q) => solvedQuestions.includes(q.id)).length;
                     const isPatternComplete = solvedInPattern === patternQuestions.length && patternQuestions.length > 0;
-                    const isPatternExpanded = expandedPatterns[patternKey] !== false; // default open inside opened topic
+                    const isPatternExpanded = expandedPatterns[patternKey] !== false;
                     const firstQ = patternQuestions[0];
                     const patternId = firstQ?.patternId;
 
-                    // Unique sub-patterns in this pattern
                     const subPatternsInPattern = Array.from(new Set(patternQuestions.map((q) => q.subPattern)));
 
                     return (
                       <div
                         key={patternKey}
-                        className="bg-[#101014] border border-[#202028] rounded-xl overflow-hidden"
+                        className="bg-[#182436] border border-[#304055] rounded-xl overflow-hidden shadow-xs"
                       >
                         {/* Level 2: Pattern Header */}
-                        <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3 bg-[#131318]">
+                        <div className="p-3.5 sm:p-4 flex items-center justify-between gap-3 bg-[#1A283C]">
                           <div
                             onClick={() => togglePattern(patternKey)}
                             className="flex items-center gap-2.5 cursor-pointer flex-1"
                           >
-                            <span className="p-0.5 text-zinc-400">
+                            <span className="p-0.5 text-[#7F90A6]">
                               {isPatternExpanded ? (
-                                <ChevronDown className="w-4 h-4 text-zinc-300" />
+                                <ChevronDown className="w-4 h-4 text-[#A6B3C5]" />
                               ) : (
-                                <ChevronRight className="w-4 h-4 text-zinc-500" />
+                                <ChevronRight className="w-4 h-4 text-[#7F90A6]" />
                               )}
                             </span>
                             <div>
-                              <h3 className="text-sm font-bold text-zinc-100 flex items-center gap-2">
+                              <h3 className="text-sm font-bold text-[#E7EDF5] flex items-center gap-2">
                                 <span>{patternName}</span>
                                 {isPatternComplete && (
-                                  <span className="text-[10px] font-mono font-semibold text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">
+                                  <span className="text-[10px] font-mono font-semibold text-[#83C7A1] bg-[#1D3A32] border border-[#2D5549] px-1.5 py-0.5 rounded">
                                     ✓ Solved
                                   </span>
                                 )}
                               </h3>
-                              <span className="text-xs text-zinc-400 font-mono">
+                              <span className="text-xs text-[#7F90A6] font-mono">
                                 {solvedInPattern}/{patternQuestions.length} problems completed
                               </span>
                             </div>
@@ -304,9 +300,9 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
                               <button
                                 type="button"
                                 onClick={() => onOpenPatternDetail(patternId)}
-                                className="px-2.5 py-1 rounded text-xs font-medium text-zinc-300 hover:text-white bg-[#18181c] hover:bg-[#222228] border border-[#2c2c36] transition-colors flex items-center gap-1.5"
+                                className="px-2.5 py-1 rounded text-xs font-medium text-[#A6B3C5] hover:text-[#E7EDF5] bg-[#202F43] hover:bg-[#243E48] border border-[#304055] hover:border-[#55B7A8]/50 transition-colors flex items-center gap-1.5"
                               >
-                                <BookOpen className="w-3.5 h-3.5 text-zinc-400" />
+                                <BookOpen className="w-3.5 h-3.5 text-[#55B7A8]" />
                                 <span className="hidden sm:inline">Blueprint & Template</span>
                                 <span className="sm:hidden">Blueprint</span>
                               </button>
@@ -316,36 +312,36 @@ export const PatternsView: React.FC<PatternsViewProps> = ({
 
                         {/* Level 2 Expanded Body (Sub-patterns) */}
                         {isPatternExpanded && (
-                          <div className="p-3 sm:p-4 space-y-4 border-t border-[#1a1a20]">
+                          <div className="p-3 sm:p-4 space-y-4 border-t border-[#304055] bg-[#121C2B]">
                             {subPatternsInPattern.map((subPatternName) => {
                               const subPatternKey = `${patternKey}__${subPatternName}`;
                               const subQuestions = patternQuestions.filter((q) => q.subPattern === subPatternName);
-                              const isSubExpanded = expandedSubPatterns[subPatternKey] !== false; // default expanded
+                              const isSubExpanded = expandedSubPatterns[subPatternKey] !== false;
 
                               return (
                                 <div key={subPatternKey} className="space-y-3">
                                   {/* Level 3: Sub-pattern Tag / Header */}
                                   <div
                                     onClick={() => toggleSubPattern(subPatternKey)}
-                                    className="flex items-center justify-between cursor-pointer py-1 text-xs font-semibold text-zinc-300 hover:text-white transition-colors"
+                                    className="flex items-center justify-between cursor-pointer py-1 text-xs font-semibold text-[#A6B3C5] hover:text-[#E7EDF5] transition-colors"
                                   >
                                     <div className="flex items-center gap-2">
-                                      <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
-                                      <span className="tracking-wide text-zinc-300">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-[#55B7A8]" />
+                                      <span className="tracking-wide text-[#E7EDF5]">
                                         Sub-pattern: {subPatternName}
                                       </span>
-                                      <span className="text-zinc-500 font-mono text-[11px]">
+                                      <span className="text-[#7F90A6] font-mono text-[11px]">
                                         ({subQuestions.length} {subQuestions.length === 1 ? 'problem' : 'problems'})
                                       </span>
                                     </div>
-                                    <span className="text-zinc-500 text-[11px]">
+                                    <span className="text-[#7F90A6] text-[11px]">
                                       {isSubExpanded ? 'Collapse' : 'Expand'}
                                     </span>
                                   </div>
 
                                   {/* Level 4: Representative LeetCode Questions */}
                                   {isSubExpanded && (
-                                    <div className="space-y-2 pl-2 sm:pl-3 border-l-2 border-zinc-800">
+                                    <div className="space-y-2 pl-2 sm:pl-3 border-l-2 border-[#304055]">
                                       {subQuestions.map((question) => (
                                         <QuestionCard
                                           key={question.id}

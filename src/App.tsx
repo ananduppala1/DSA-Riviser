@@ -58,7 +58,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#F5F5F5] flex flex-col lg:flex-row antialiased font-sans">
+    <div className="min-h-screen bg-[#0E1522] text-[#E7EDF5] flex flex-col lg:flex-row antialiased font-sans selection:bg-[#243E48] selection:text-[#E7EDF5]">
       {/* Sidebar Navigation */}
       <Sidebar
         currentTab={currentTab}

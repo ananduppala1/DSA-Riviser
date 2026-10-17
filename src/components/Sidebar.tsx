@@ -77,18 +77,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
   };
 
   const content = (
-    <aside className="w-64 h-full flex flex-col bg-[#0a0a0a] border-r border-[#1a1a1a] select-none">
+    <aside className="w-64 h-full flex flex-col bg-[#121C2B] border-r border-[#304055] select-none">
       {/* Brand Header */}
-      <div className="p-5 border-b border-[#1a1a1a]">
+      <div className="p-5 border-b border-[#304055]">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700/80 flex items-center justify-center font-bold text-zinc-100 text-sm tracking-wider">
+          <div className="w-8 h-8 rounded-lg bg-[#203D41] border border-[#55B7A8]/40 flex items-center justify-center font-bold text-[#70C8B9] text-sm tracking-wider">
             PV
           </div>
           <div>
-            <h1 className="text-sm font-bold text-zinc-100 tracking-tight leading-none">
+            <h1 className="text-sm font-bold text-[#E7EDF5] tracking-tight leading-none">
               DSA Pattern Vault
             </h1>
-            <div className="text-[11px] text-zinc-500 font-mono mt-1">
+            <div className="text-[11px] text-[#7F90A6] font-mono mt-1">
               98 Curated Questions
             </div>
           </div>
@@ -106,20 +106,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={() => handleNavClick(item.tab)}
               className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all ${
                 isActive
-                  ? 'bg-zinc-800/90 text-white border border-zinc-700/70 shadow-sm'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#141416]'
+                  ? 'bg-[#243E48] text-[#E7EDF5] border border-[#55B7A8]/50 shadow-sm'
+                  : 'text-[#A6B3C5] hover:text-[#E7EDF5] hover:bg-[#182436]'
               }`}
             >
               <div className="flex items-center gap-2.5">
-                <span className={isActive ? 'text-zinc-100' : 'text-zinc-400'}>{item.icon}</span>
+                <span className={isActive ? 'text-[#55B7A8]' : 'text-[#7F90A6]'}>{item.icon}</span>
                 <span>{item.label}</span>
               </div>
               {item.badge && (
                 <span
                   className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
                     isActive
-                      ? 'bg-zinc-700 text-zinc-200'
-                      : 'bg-[#181818] text-zinc-500'
+                      ? 'bg-[#203D41] text-[#70C8B9] border border-[#55B7A8]/40'
+                      : 'bg-[#182436] text-[#7F90A6] border border-[#304055]'
                   }`}
                 >
                   {item.badge}
@@ -131,27 +131,27 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </nav>
 
       {/* Bottom Summary Widget */}
-      <div className="p-4 border-t border-[#1a1a1a] bg-[#0d0d0d]">
+      <div className="p-4 border-t border-[#304055] bg-[#0E1522]">
         <div className="flex items-center justify-between text-xs mb-2">
-          <span className="text-zinc-400 font-medium">Vault Progress</span>
-          <span className="font-mono text-zinc-200 font-semibold tabular-nums">
-            {solvedCount} <span className="text-zinc-500 font-normal">/ 98</span>
+          <span className="text-[#A6B3C5] font-medium">Vault Progress</span>
+          <span className="font-mono text-[#E7EDF5] font-semibold tabular-nums">
+            {solvedCount} <span className="text-[#7F90A6] font-normal">/ 98</span>
           </span>
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full h-1.5 bg-[#1f1f1f] rounded-full overflow-hidden mb-3">
+        <div className="w-full h-1.5 bg-[#202F43] rounded-full overflow-hidden mb-3">
           <div
-            className="h-full bg-zinc-300 rounded-full transition-all duration-300"
+            className="h-full bg-[#55B7A8] rounded-full transition-all duration-300"
             style={{ width: `${percentage}%` }}
           />
         </div>
 
-        <div className="flex items-center justify-between text-[11px] text-zinc-500">
+        <div className="flex items-center justify-between text-[11px] text-[#7F90A6]">
           <span className="font-mono tabular-nums">{percentage}% complete</span>
-          <div className="flex items-center gap-1 text-zinc-400 font-mono">
-            <StreakIcon className="w-3.5 h-3.5 text-zinc-300" />
-            <span className="font-semibold tabular-nums text-zinc-200">{streakCount}d streak</span>
+          <div className="flex items-center gap-1.5 text-[#D9AD70] font-mono">
+            <StreakIcon className="w-3.5 h-3.5 fill-[#D9AD70]/20" />
+            <span className="font-semibold tabular-nums text-[#D9AD70]">{streakCount}d streak</span>
           </div>
         </div>
       </div>

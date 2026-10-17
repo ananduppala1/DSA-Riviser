@@ -5,10 +5,8 @@ import {
   Zap,
   Flame,
   CheckCircle2,
-  Clock,
   ArrowRight,
   TrendingUp,
-  Award,
   Layers,
   Sparkles,
 } from 'lucide-react';
@@ -61,7 +59,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
   const topicsCompletedCount = topicStats.filter((t) => t.isComplete).length;
 
-  // Weakest topics (topics with lowest completion percentage that still have remaining questions)
+  // Weakest topics
   const weakestTopics = [...topicStats]
     .filter((t) => t.remaining > 0)
     .sort((a, b) => a.percentage - b.percentage || b.remaining - a.remaining)
@@ -87,23 +85,23 @@ export const Dashboard: React.FC<DashboardProps> = ({
   return (
     <div className="space-y-8 animate-fade-in pb-12">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-2xl bg-[#0f0f12] border border-[#222228] p-6 sm:p-8">
+      <section className="relative overflow-hidden rounded-2xl bg-[#121C2B] border border-[#304055] p-6 sm:p-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-4 max-w-xl text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-xs font-medium text-zinc-300">
-              <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#203D41] border border-[#55B7A8]/40 text-xs font-semibold text-[#70C8B9]">
+              <Sparkles className="w-3.5 h-3.5 text-[#55B7A8]" />
               <span>Assessment Revision Cockpit</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#E7EDF5] tracking-tight">
               DSA Pattern Vault
             </h1>
 
-            <p className="text-base sm:text-lg font-medium text-zinc-300">
+            <p className="text-base sm:text-lg font-medium text-[#70C8B9]">
               “Recognize the pattern. Solve the problem. Repeat.”
             </p>
 
-            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#A6B3C5] leading-relaxed">
               98 representative problems across all major algorithmic paradigms. No noise, no random grinding—reactivate your instincts before online assessments.
             </p>
 
@@ -112,7 +110,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <button
                 type="button"
                 onClick={() => onSelectTab('patterns')}
-                className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-900 bg-zinc-100 hover:bg-white transition-all flex items-center gap-2"
+                className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-[#0E1522] bg-[#55B7A8] hover:bg-[#70C8B9] transition-all flex items-center gap-2 shadow-sm"
               >
                 <span>Start Revision</span>
                 <ArrowRight className="w-4 h-4" />
@@ -121,24 +119,24 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <button
                 type="button"
                 onClick={() => onSelectTab('quick-revision')}
-                className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-200 bg-[#18181c] hover:bg-[#222228] border border-[#2c2c36] transition-all flex items-center gap-1.5"
+                className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-[#70C8B9] bg-[#203D41] hover:bg-[#243E48] border border-[#55B7A8]/40 transition-all flex items-center gap-1.5"
               >
-                <Zap className="w-4 h-4 text-zinc-400" />
+                <Zap className="w-4 h-4 text-[#55B7A8]" />
                 <span>Quick Revision (2-3d)</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => onSelectTab('progress')}
-                className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-zinc-400 hover:text-zinc-200 bg-[#121215] hover:bg-[#1a1a1f] border border-[#24242c] transition-all"
+                className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-[#A6B3C5] hover:text-[#E7EDF5] bg-[#182436] hover:bg-[#202F43] border border-[#304055] transition-all"
               >
                 View Analytics
               </button>
             </div>
 
             {/* Motivational Microcopy Rotator */}
-            <div className="pt-3 text-xs text-zinc-500 flex items-center justify-center lg:justify-start gap-2 italic">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 shrink-0" />
+            <div className="pt-3 text-xs text-[#7F90A6] flex items-center justify-center lg:justify-start gap-2 italic">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#55B7A8] shrink-0" />
               <span>{MOTIVATIONAL_QUOTES[quoteIndex]}</span>
             </div>
           </div>
@@ -151,7 +149,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   cx="80"
                   cy="80"
                   r={radius}
-                  stroke="#1c1c22"
+                  stroke="#202F43"
                   strokeWidth="10"
                   fill="transparent"
                 />
@@ -159,7 +157,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   cx="80"
                   cy="80"
                   r={radius}
-                  stroke="#52525b"
+                  stroke="#55B7A8"
                   strokeWidth="10"
                   strokeDasharray={circumference}
                   strokeDashoffset={strokeDashoffset}
@@ -170,13 +168,13 @@ export const Dashboard: React.FC<DashboardProps> = ({
               </svg>
 
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                <span className="text-3xl font-bold text-white font-mono tabular-nums">
+                <span className="text-3xl font-bold text-[#E7EDF5] font-mono tabular-nums">
                   {overallPercentage}%
                 </span>
-                <span className="text-xs text-zinc-400 font-mono mt-0.5 tabular-nums">
+                <span className="text-xs text-[#70C8B9] font-mono mt-0.5 tabular-nums">
                   {solvedCount} / 98
                 </span>
-                <span className="text-[10px] text-zinc-500 font-medium uppercase tracking-wider mt-1">
+                <span className="text-[10px] text-[#7F90A6] font-medium uppercase tracking-wider mt-1">
                   Pattern Coverage
                 </span>
               </div>
@@ -187,82 +185,82 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
       {/* Progress Metric Cards */}
       <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-        <div className="bg-[#0f0f11] border border-[#202024] rounded-xl p-4">
-          <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
+        <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 transition-colors hover:border-[#475B73]">
+          <span className="text-[11px] font-medium text-[#7F90A6] uppercase tracking-wider block mb-1">
             Overall Solved
           </span>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-2xl font-bold text-white font-mono tabular-nums">{solvedCount}</span>
-            <span className="text-xs text-zinc-500 font-mono">/ 98</span>
+            <span className="text-2xl font-bold text-[#E7EDF5] font-mono tabular-nums">{solvedCount}</span>
+            <span className="text-xs text-[#7F90A6] font-mono">/ 98</span>
           </div>
-          <div className="mt-2 text-[11px] text-zinc-500">
+          <div className="mt-2 text-[11px] text-[#A6B3C5]">
             {remainingCount} questions left
           </div>
         </div>
 
-        <div className="bg-[#0f0f11] border border-[#202024] rounded-xl p-4">
-          <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
+        <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 transition-colors hover:border-[#55B7A8]/50">
+          <span className="text-[11px] font-medium text-[#7F90A6] uppercase tracking-wider block mb-1">
             Pattern Coverage
           </span>
-          <div className="text-2xl font-bold text-zinc-100 font-mono tabular-nums">
+          <div className="text-2xl font-bold text-[#55B7A8] font-mono tabular-nums">
             {overallPercentage}%
           </div>
-          <div className="mt-2 text-[11px] text-zinc-500">
+          <div className="mt-2 text-[11px] text-[#A6B3C5]">
             Across 18 topics
           </div>
         </div>
 
-        <div className="bg-[#0f0f11] border border-[#202024] rounded-xl p-4">
-          <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
-            Topics Completed
+        <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 transition-colors hover:border-[#475B73]">
+          <span className="text-[11px] font-medium text-[#7F90A6] uppercase tracking-wider block mb-1">
+            Topics Mastered
           </span>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-2xl font-bold text-zinc-100 font-mono tabular-nums">
+            <span className="text-2xl font-bold text-[#70C8B9] font-mono tabular-nums">
               {topicsCompletedCount}
             </span>
-            <span className="text-xs text-zinc-500 font-mono">/ 18</span>
+            <span className="text-xs text-[#7F90A6] font-mono">/ 18</span>
           </div>
-          <div className="mt-2 text-[11px] text-zinc-500">
-            100% mastered
+          <div className="mt-2 text-[11px] text-[#A6B3C5]">
+            100% completed
           </div>
         </div>
 
-        <div className="bg-[#0f0f11] border border-[#202024] rounded-xl p-4">
-          <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
+        <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 transition-colors hover:border-[#475B73]">
+          <span className="text-[11px] font-medium text-[#7F90A6] uppercase tracking-wider block mb-1">
             Remaining
           </span>
-          <div className="text-2xl font-bold text-zinc-200 font-mono tabular-nums">
+          <div className="text-2xl font-bold text-[#E7EDF5] font-mono tabular-nums">
             {remainingCount}
           </div>
-          <div className="mt-2 text-[11px] text-zinc-500">
+          <div className="mt-2 text-[11px] text-[#A6B3C5]">
             Target: 0
           </div>
         </div>
 
-        <div className="bg-[#0f0f11] border border-[#202024] rounded-xl p-4">
-          <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
+        <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 transition-colors hover:border-[#D9AD70]/50">
+          <span className="text-[11px] font-medium text-[#7F90A6] uppercase tracking-wider block mb-1">
             Current Streak
           </span>
-          <div className="flex items-center gap-1.5 text-zinc-300">
-            <Flame className="w-5 h-5 text-zinc-400" />
-            <span className="text-2xl font-bold font-mono tabular-nums text-zinc-100">{streak.current}d</span>
+          <div className="flex items-center gap-1.5 text-[#D9AD70]">
+            <Flame className="w-5 h-5 fill-[#D9AD70]/20" />
+            <span className="text-2xl font-bold font-mono tabular-nums text-[#D9AD70]">{streak.current}d</span>
           </div>
-          <div className="mt-2 text-[11px] text-zinc-500">
+          <div className="mt-2 text-[11px] text-[#A6B3C5]">
             Best: {streak.longest}d
           </div>
         </div>
 
-        <div className="bg-[#0f0f11] border border-[#202024] rounded-xl p-4">
-          <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wider block mb-1">
+        <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 transition-colors hover:border-[#91B8DF]/50">
+          <span className="text-[11px] font-medium text-[#7F90A6] uppercase tracking-wider block mb-1">
             Revision Pace
           </span>
-          <div className="flex items-center gap-1.5 text-zinc-300">
-            <TrendingUp className="w-5 h-5 text-zinc-400" />
-            <span className="text-2xl font-bold font-mono tabular-nums">
+          <div className="flex items-center gap-1.5 text-[#91B8DF]">
+            <TrendingUp className="w-5 h-5 text-[#91B8DF]" />
+            <span className="text-2xl font-bold font-mono tabular-nums text-[#E7EDF5]">
               {solvedCount === 0 ? '0' : Math.min(98, Math.round(solvedCount * 1.2))}
             </span>
           </div>
-          <div className="mt-2 text-[11px] text-zinc-500">
+          <div className="mt-2 text-[11px] text-[#A6B3C5]">
             Confidence momentum
           </div>
         </div>
@@ -270,15 +268,15 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
       {/* Empty State Banner if 0 problems solved */}
       {solvedCount === 0 && (
-        <div className="rounded-xl border border-zinc-800 bg-[#0d0d0f] p-6 text-center space-y-3">
-          <h2 className="text-lg font-bold text-zinc-100">Your vault is ready.</h2>
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-md mx-auto">
+        <div className="rounded-xl border border-[#304055] bg-[#121C2B] p-6 text-center space-y-3">
+          <h2 className="text-lg font-bold text-[#E7EDF5]">Your vault is ready.</h2>
+          <p className="text-xs sm:text-sm text-[#A6B3C5] max-w-md mx-auto">
             You already solved 400+ problems in the past—your intuition is still there. Start with one pattern to wake it up.
           </p>
           <button
             type="button"
             onClick={() => onSelectTopic('arrays-hashing')}
-            className="px-4 py-2 rounded-lg text-xs font-semibold text-zinc-900 bg-zinc-100 hover:bg-white transition-colors inline-flex items-center gap-1.5"
+            className="px-4 py-2 rounded-lg text-xs font-semibold text-[#0E1522] bg-[#55B7A8] hover:bg-[#70C8B9] transition-colors inline-flex items-center gap-1.5 shadow-sm"
           >
             <span>Start with Arrays + Hashing</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -289,26 +287,26 @@ export const Dashboard: React.FC<DashboardProps> = ({
       {/* Two Column Layout: Weakest Focus & Recently Completed */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Weakest Topics / Needs Revision */}
-        <section className="bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-5 space-y-4">
+        <section className="bg-[#121C2B] border border-[#304055] rounded-xl p-5 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-md bg-zinc-800 text-zinc-300 border border-zinc-700">
-                <Flame className="w-4 h-4 text-zinc-300" />
+              <div className="p-1.5 rounded-md bg-[#3A3026] text-[#D9AD70] border border-[#5A4D35]">
+                <Flame className="w-4 h-4" />
               </div>
-              <h2 className="text-sm font-bold text-zinc-100 uppercase tracking-wide">
+              <h2 className="text-sm font-bold text-[#E7EDF5] uppercase tracking-wide">
                 Priority Revision Topics
               </h2>
             </div>
             <button
               onClick={() => onSelectTab('revision-mode')}
-              className="text-xs text-zinc-400 hover:text-white font-medium flex items-center gap-1 transition-colors"
+              className="text-xs text-[#70C8B9] hover:underline font-medium flex items-center gap-1 transition-colors"
             >
               <span>Focus Mode</span>
               <ArrowRight className="w-3 h-3" />
             </button>
           </div>
 
-          <p className="text-xs text-zinc-400">
+          <p className="text-xs text-[#A6B3C5]">
             Topics with the lowest completion rate where focused practice will yield maximum exam leverage.
           </p>
 
@@ -317,29 +315,29 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <div
                 key={topic.id}
                 onClick={() => onSelectTopic(topic.id)}
-                className="group p-3 rounded-lg bg-[#131316] border border-[#222227] hover:border-[#383842] transition-all cursor-pointer flex items-center justify-between"
+                className="group p-3 rounded-lg bg-[#182436] border border-[#304055] hover:border-[#55B7A8]/60 hover:bg-[#202F43] transition-all cursor-pointer flex items-center justify-between"
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-zinc-400">
+                    <span className="font-mono text-xs font-bold text-[#70C8B9] bg-[#203D41] px-1.5 py-0.5 rounded border border-[#55B7A8]/30">
                       {topic.letter}.
                     </span>
-                    <span className="text-xs font-semibold text-zinc-200 group-hover:text-white">
+                    <span className="text-xs font-semibold text-[#E7EDF5] group-hover:text-[#70C8B9] transition-colors">
                       {topic.name}
                     </span>
                   </div>
-                  <div className="text-[11px] text-zinc-500">
+                  <div className="text-[11px] text-[#7F90A6]">
                     {topic.solved} of {topic.total} solved ({topic.remaining} remaining)
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className="font-mono text-xs font-bold text-zinc-300 tabular-nums">
+                  <span className="font-mono text-xs font-bold text-[#E7EDF5] tabular-nums">
                     {topic.percentage}%
                   </span>
-                  <div className="w-20 h-1.5 bg-[#202027] rounded-full overflow-hidden mt-1">
+                  <div className="w-20 h-1.5 bg-[#202F43] rounded-full overflow-hidden mt-1">
                     <div
-                      className="h-full bg-zinc-500 rounded-full"
+                      className="h-full bg-[#55B7A8] rounded-full transition-all duration-300"
                       style={{ width: `${topic.percentage}%` }}
                     />
                   </div>
@@ -350,31 +348,31 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </section>
 
         {/* Recently Completed */}
-        <section className="bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-5 space-y-4">
+        <section className="bg-[#121C2B] border border-[#304055] rounded-xl p-5 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-md bg-zinc-800 text-zinc-300 border border-zinc-700">
-                <CheckCircle2 className="w-4 h-4 text-zinc-300" />
+              <div className="p-1.5 rounded-md bg-[#1D3A32] text-[#83C7A1] border border-[#2D5549]">
+                <CheckCircle2 className="w-4 h-4" />
               </div>
-              <h2 className="text-sm font-bold text-zinc-100 uppercase tracking-wide">
+              <h2 className="text-sm font-bold text-[#E7EDF5] uppercase tracking-wide">
                 Recently Completed
               </h2>
             </div>
             <button
               onClick={() => onSelectTab('questions')}
-              className="text-xs text-zinc-400 hover:text-zinc-200 font-medium flex items-center gap-1 transition-colors"
+              className="text-xs text-[#70C8B9] hover:underline font-medium flex items-center gap-1 transition-colors"
             >
               <span>View All 98</span>
               <ArrowRight className="w-3 h-3" />
             </button>
           </div>
 
-          <p className="text-xs text-zinc-400">
+          <p className="text-xs text-[#A6B3C5]">
             Latest solved problems reflecting your active revision momentum.
           </p>
 
           {recentSolvedQuestions.length === 0 ? (
-            <div className="py-8 text-center text-xs text-zinc-500">
+            <div className="py-8 text-center text-xs text-[#7F90A6]">
               No problems marked completed yet. Open any question and hit "Mark Solved" when done!
             </div>
           ) : (
@@ -382,24 +380,24 @@ export const Dashboard: React.FC<DashboardProps> = ({
               {recentSolvedQuestions.map((q) => (
                 <div
                   key={q.id}
-                  className="p-2.5 rounded-lg bg-[#131316] border border-[#222227] flex items-center justify-between text-xs"
+                  className="p-2.5 rounded-lg bg-[#182436] border border-[#304055] flex items-center justify-between text-xs"
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="font-mono text-zinc-500">#{q.number}</span>
-                    <span className="font-medium text-zinc-100">{q.title}</span>
-                    <span className="text-[11px] text-zinc-500 hidden sm:inline">
+                    <span className="font-mono text-[#7F90A6]">#{q.number}</span>
+                    <span className="font-medium text-[#E7EDF5]">{q.title}</span>
+                    <span className="text-[11px] text-[#7F90A6] hidden sm:inline">
                       ({q.topic})
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-zinc-300 font-mono font-semibold">
+                    <span className="text-[10px] text-[#83C7A1] bg-[#1D3A32] border border-[#2D5549] px-1.5 py-0.5 rounded font-mono font-semibold">
                       ✓ Done
                     </span>
                     <button
                       type="button"
                       onClick={() => onToggleSolved(q.id)}
-                      className="text-[10px] text-zinc-500 hover:text-zinc-300 font-mono hover:underline"
+                      className="text-[10px] text-[#7F90A6] hover:text-[#E7EDF5] font-mono hover:underline"
                     >
                       Undo
                     </button>
@@ -415,12 +413,12 @@ export const Dashboard: React.FC<DashboardProps> = ({
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Layers className="w-4 h-4 text-zinc-400" />
-            <h2 className="text-sm font-bold text-zinc-100 uppercase tracking-wide">
+            <Layers className="w-4 h-4 text-[#55B7A8]" />
+            <h2 className="text-sm font-bold text-[#E7EDF5] uppercase tracking-wide">
               Topic-Wise Pattern Coverage
             </h2>
           </div>
-          <span className="text-xs text-zinc-500">Click any topic to explore hierarchy</span>
+          <span className="text-xs text-[#7F90A6]">Click any topic to explore hierarchy</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
@@ -430,52 +428,52 @@ export const Dashboard: React.FC<DashboardProps> = ({
               onClick={() => onSelectTopic(topic.id)}
               className={`p-4 rounded-xl border transition-all cursor-pointer group ${
                 topic.isComplete
-                  ? 'bg-[#0f0f12] border-zinc-700 hover:border-zinc-500'
-                  : 'bg-[#0f0f12] border-[#1e1e23] hover:border-[#303038] hover:bg-[#131317]'
+                  ? 'bg-[#142323] border-[#2D5549] hover:border-[#55B7A8]'
+                  : 'bg-[#182436] border-[#304055] hover:border-[#55B7A8]/60 hover:bg-[#1C2C40]'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-zinc-400 bg-zinc-800/80 px-1.5 py-0.5 rounded">
+                  <span className="font-mono text-xs font-bold text-[#70C8B9] bg-[#203D41] px-1.5 py-0.5 rounded border border-[#55B7A8]/30">
                     {topic.letter}
                   </span>
-                  <span className="text-xs font-semibold text-zinc-100 group-hover:text-white transition-colors">
+                  <span className="text-xs font-semibold text-[#E7EDF5] group-hover:text-[#70C8B9] transition-colors">
                     {topic.name}
                   </span>
                 </div>
                 {topic.isComplete && (
-                  <span className="text-[10px] font-semibold text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded font-mono">
+                  <span className="text-[10px] font-semibold text-[#83C7A1] bg-[#1D3A32] border border-[#2D5549] px-1.5 py-0.5 rounded font-mono">
                     COMPLETED
                   </span>
                 )}
               </div>
 
-              <div className="flex items-center justify-between text-xs text-zinc-400 mb-2">
+              <div className="flex items-center justify-between text-xs text-[#A6B3C5] mb-2">
                 <span className="font-mono tabular-nums">
                   {topic.solved} / {topic.total} Solved
                 </span>
-                <span className="font-mono font-semibold text-zinc-200 tabular-nums">
+                <span className="font-mono font-semibold text-[#E7EDF5] tabular-nums">
                   {topic.percentage}%
                 </span>
               </div>
 
               {/* Progress bar */}
-              <div className="w-full h-1.5 bg-[#1b1b22] rounded-full overflow-hidden">
+              <div className="w-full h-1.5 bg-[#202F43] rounded-full overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-all duration-300 ${
                     topic.isComplete
-                      ? 'bg-zinc-300'
+                      ? 'bg-[#83C7A1]'
                       : topic.percentage > 0
-                      ? 'bg-zinc-500'
+                      ? 'bg-[#55B7A8]'
                       : 'bg-transparent'
                   }`}
                   style={{ width: `${topic.percentage}%` }}
                 />
               </div>
 
-              <div className="mt-2.5 flex items-center justify-between text-[11px] text-zinc-500">
+              <div className="mt-2.5 flex items-center justify-between text-[11px] text-[#7F90A6]">
                 <span>{topic.remaining} remaining</span>
-                <span className="text-zinc-400 group-hover:text-zinc-200 group-hover:translate-x-0.5 transition-all font-medium">
+                <span className="text-[#55B7A8] group-hover:text-[#70C8B9] group-hover:translate-x-0.5 transition-all font-medium">
                   Explore →
                 </span>
               </div>

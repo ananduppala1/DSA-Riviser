@@ -19,17 +19,23 @@ export const ToastContainer: React.FC<ToastProps> = ({ toasts, onDismiss }) => {
         return (
           <div
             key={toast.id}
-            className="pointer-events-auto flex items-center justify-between gap-3 px-4 py-3 rounded-lg shadow-xl border border-zinc-700 bg-[#141416] text-zinc-200 transition-all duration-200"
+            className={`pointer-events-auto flex items-center justify-between gap-3 px-4 py-3 rounded-xl shadow-2xl border transition-all duration-200 ${
+              isSuccess
+                ? 'bg-[#182436] border-[#2D5549] text-[#E7EDF5]'
+                : isWarning
+                ? 'bg-[#182436] border-[#5A4D35] text-[#E7EDF5]'
+                : 'bg-[#182436] border-[#304055] text-[#E7EDF5]'
+            }`}
           >
             <div className="flex items-center gap-2.5 text-sm font-medium">
-              {isSuccess && <CheckCircle2 className="w-4 h-4 text-zinc-300 shrink-0" />}
-              {isWarning && <AlertCircle className="w-4 h-4 text-zinc-300 shrink-0" />}
-              {!isSuccess && !isWarning && <Info className="w-4 h-4 text-zinc-400 shrink-0" />}
+              {isSuccess && <CheckCircle2 className="w-4 h-4 text-[#83C7A1] shrink-0" />}
+              {isWarning && <AlertCircle className="w-4 h-4 text-[#E3BC78] shrink-0" />}
+              {!isSuccess && !isWarning && <Info className="w-4 h-4 text-[#91B8DF] shrink-0" />}
               <span>{toast.text}</span>
             </div>
             <button
               onClick={() => onDismiss(toast.id)}
-              className="text-zinc-500 hover:text-zinc-300 p-0.5 rounded transition-colors"
+              className="text-[#7F90A6] hover:text-[#E7EDF5] p-0.5 rounded transition-colors"
               aria-label="Dismiss notification"
             >
               <X className="w-3.5 h-3.5" />

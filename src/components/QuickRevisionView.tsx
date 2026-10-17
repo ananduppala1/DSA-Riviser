@@ -80,22 +80,22 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
   return (
     <div className="space-y-6 animate-fade-in pb-12">
       {/* Banner */}
-      <div className="bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="bg-[#121C2B] border border-[#304055] rounded-xl p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-xs font-semibold text-zinc-300">
-            <Zap className="w-3.5 h-3.5 text-zinc-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#203D41] border border-[#55B7A8]/40 text-xs font-semibold text-[#70C8B9]">
+            <Zap className="w-3.5 h-3.5 text-[#55B7A8]" />
             <span>High-Yield Assessment Sprint</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#E7EDF5] tracking-tight">
             Quick Revision Sequence
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#A6B3C5] max-w-xl leading-relaxed">
             Have only 2 to 3 days before an online coding assessment? Follow this disciplined, curated itinerary to systematically cover all patterns without burnout.
           </p>
         </div>
 
         {/* Plan Mode Switcher */}
-        <div className="flex items-center p-1 bg-[#09090b] border border-[#222222] rounded-xl self-stretch md:self-auto">
+        <div className="flex items-center p-1 bg-[#0E1522] border border-[#304055] rounded-xl self-stretch md:self-auto">
           <button
             type="button"
             onClick={() => {
@@ -104,8 +104,8 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
             }}
             className={`flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
               activePlan === '3-day'
-                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-[#243E48] text-[#70C8B9] border border-[#55B7A8]/50 shadow-sm'
+                : 'text-[#A6B3C5] hover:text-[#E7EDF5]'
             }`}
           >
             3-Day Schedule (Recommended)
@@ -118,8 +118,8 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
             }}
             className={`flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
               activePlan === '2-day'
-                ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-[#243E48] text-[#70C8B9] border border-[#55B7A8]/50 shadow-sm'
+                : 'text-[#A6B3C5] hover:text-[#E7EDF5]'
             }`}
           >
             2-Day Blitz
@@ -128,8 +128,8 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
       </div>
 
       {/* Day Selector Tabs & Status */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-[#0f0f12] border border-[#1e1e24] rounded-xl p-3 sm:p-4">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-[#121C2B] border border-[#304055] rounded-xl p-3 sm:p-4">
+        <div className="flex flex-wrap items-center gap-2">
           {activePlan === '3-day' ? (
             <>
               <button
@@ -137,8 +137,8 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
                 onClick={() => setSelectedDay(1)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                   selectedDay === 1
-                    ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                    : 'bg-[#15151a] text-zinc-400 hover:text-white border border-[#24242d]'
+                    ? 'bg-[#243E48] text-[#70C8B9] border border-[#55B7A8]/50 shadow-sm'
+                    : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055]'
                 }`}
               >
                 DAY 1: Linear & Sliding & BS
@@ -148,8 +148,8 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
                 onClick={() => setSelectedDay(2)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                   selectedDay === 2
-                    ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                    : 'bg-[#15151a] text-zinc-400 hover:text-white border border-[#24242d]'
+                    ? 'bg-[#243E48] text-[#70C8B9] border border-[#55B7A8]/50 shadow-sm'
+                    : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055]'
                 }`}
               >
                 DAY 2: Linked Lists, Stack, Heap, Trees
@@ -159,8 +159,8 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
                 onClick={() => setSelectedDay(3)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                   selectedDay === 3
-                    ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                    : 'bg-[#15151a] text-zinc-400 hover:text-white border border-[#24242d]'
+                    ? 'bg-[#243E48] text-[#70C8B9] border border-[#55B7A8]/50 shadow-sm'
+                    : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055]'
                 }`}
               >
                 DAY 3: Graphs, Greedy, DP, Bit & Math
@@ -173,8 +173,8 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
                 onClick={() => setSelectedDay(1)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                   selectedDay === 1
-                    ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                    : 'bg-[#15151a] text-zinc-400 hover:text-white border border-[#24242d]'
+                    ? 'bg-[#243E48] text-[#70C8B9] border border-[#55B7A8]/50 shadow-sm'
+                    : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055]'
                 }`}
               >
                 DAY 1: Fundamentals, Pointers & Search
@@ -184,8 +184,8 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
                 onClick={() => setSelectedDay(2)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                   selectedDay === 2
-                    ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
-                    : 'bg-[#15151a] text-zinc-400 hover:text-white border border-[#24242d]'
+                    ? 'bg-[#243E48] text-[#70C8B9] border border-[#55B7A8]/50 shadow-sm'
+                    : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055]'
                 }`}
               >
                 DAY 2: Trees, Graphs, DP & Greedy
@@ -195,12 +195,12 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
         </div>
 
         <div className="flex items-center justify-between sm:justify-end gap-3 text-xs">
-          <span className="text-zinc-400 font-mono">
-            Day Progress: <span className="font-bold text-zinc-200">{daySolvedCount}</span> / {dayQuestions.length} ({dayPercentage}%)
+          <span className="text-[#A6B3C5] font-mono">
+            Day Progress: <span className="font-bold text-[#E7EDF5]">{daySolvedCount}</span> / {dayQuestions.length} ({dayPercentage}%)
           </span>
-          <div className="w-24 h-1.5 bg-[#202028] rounded-full overflow-hidden">
+          <div className="w-24 h-1.5 bg-[#202F43] rounded-full overflow-hidden">
             <div
-              className="h-full bg-zinc-400 rounded-full transition-all duration-300"
+              className="h-full bg-[#55B7A8] rounded-full transition-all duration-300"
               style={{ width: `${dayPercentage}%` }}
             />
           </div>
@@ -223,20 +223,20 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
               key={topic.id}
               className={`rounded-xl border transition-all ${
                 isTopicChecked
-                  ? 'bg-[#0f0f12] border-zinc-700'
-                  : 'bg-[#0d0d10] border-[#1e1e23]'
+                  ? 'bg-[#142323] border-[#2D5549]'
+                  : 'bg-[#121C2B] border-[#304055]'
               } p-5 space-y-4`}
             >
               {/* Header with Topic Checkbox */}
-              <div className="flex items-center justify-between gap-4 pb-3 border-b border-[#1b1b22]">
+              <div className="flex items-center justify-between gap-4 pb-3 border-b border-[#304055]">
                 <div className="flex items-center gap-3">
                   <button
                     type="button"
                     onClick={() => toggleTopicRevisionCheck(topic.id)}
                     className={`w-5 h-5 rounded flex items-center justify-center border transition-colors ${
                       isTopicChecked
-                        ? 'bg-zinc-200 border-zinc-200 text-zinc-950'
-                        : 'border-zinc-600 hover:border-zinc-400 bg-transparent'
+                        ? 'bg-[#1D3A32] border-[#2D5549] text-[#83C7A1]'
+                        : 'border-[#304055] hover:border-[#55B7A8] bg-[#0E1522]'
                     }`}
                     aria-label={`Mark ${topic.name} revised`}
                   >
@@ -245,24 +245,24 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
 
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-zinc-400">
+                      <span className="font-mono text-xs font-bold text-[#70C8B9] bg-[#203D41] border border-[#55B7A8]/30 px-1.5 py-0.5 rounded">
                         {topic.letter}.
                       </span>
-                      <h2 className="text-base font-bold text-white">
+                      <h2 className="text-base font-bold text-[#E7EDF5]">
                         {topic.name}
                       </h2>
                       {isTopicChecked && (
-                        <span className="text-[10px] font-mono font-semibold text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">
+                        <span className="text-[10px] font-mono font-semibold text-[#83C7A1] bg-[#1D3A32] border border-[#2D5549] px-1.5 py-0.5 rounded">
                           REVISED
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-zinc-400 mt-0.5">{topic.description}</p>
+                    <p className="text-xs text-[#A6B3C5] mt-0.5">{topic.description}</p>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className="font-mono text-xs font-semibold text-zinc-300">
+                  <span className="font-mono text-xs font-semibold text-[#E7EDF5]">
                     {solvedInTopic}/{topicQuestions.length} Solved
                   </span>
                 </div>
@@ -277,21 +277,21 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
                   return (
                     <div
                       key={pName}
-                      className="p-3 rounded-lg bg-[#131317] border border-[#222228] text-xs space-y-1.5"
+                      className="p-3 rounded-lg bg-[#182436] border border-[#304055] text-xs space-y-1.5"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-semibold text-zinc-200">{pName}</span>
+                        <span className="font-semibold text-[#E7EDF5]">{pName}</span>
                         {pQ?.patternId && (
                           <button
                             type="button"
                             onClick={() => onOpenPatternDetail(pQ.patternId)}
-                            className="text-[10px] text-zinc-400 hover:text-white hover:underline font-mono"
+                            className="text-[10px] text-[#55B7A8] hover:text-[#70C8B9] hover:underline font-mono"
                           >
                             Template →
                           </button>
                         )}
                       </div>
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                      <p className="text-[#A6B3C5] text-[11px] leading-relaxed">
                         {pDetail?.whenToThink || pQ?.recognition}
                       </p>
                     </div>
@@ -301,7 +301,7 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({
 
               {/* Curated Questions in this Topic */}
               <div className="space-y-2 pt-2">
-                <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider block">
+                <span className="text-xs font-semibold text-[#7F90A6] uppercase tracking-wider block">
                   High-Yield Revision Problems:
                 </span>
                 <div className="space-y-2">

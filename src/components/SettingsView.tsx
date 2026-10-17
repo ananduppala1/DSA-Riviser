@@ -65,31 +65,31 @@ export function SettingsView({
   return (
     <div className="space-y-8 animate-fade-in pb-12 max-w-4xl">
       {/* Header */}
-      <div className="bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-5 sm:p-6">
-        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+      <div className="bg-[#121C2B] border border-[#304055] rounded-xl p-5 sm:p-6 shadow-sm">
+        <h1 className="text-xl sm:text-2xl font-bold text-[#E7EDF5] tracking-tight">
           Vault Settings & Progress Backup
         </h1>
-        <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+        <p className="text-xs sm:text-sm text-[#A6B3C5] mt-1">
           Manage your local persistence data, export backups before switching devices, or reset your revision state.
         </p>
       </div>
 
       {/* Progress Management Section */}
-      <section className="bg-[#0f0f12] border border-[#202026] rounded-xl p-5 sm:p-6 space-y-6">
-        <div className="flex items-center gap-2 pb-3 border-b border-[#1c1c24]">
-          <Database className="w-5 h-5 text-zinc-400" />
-          <h2 className="text-base font-bold text-white">Progress Backup & Restoration</h2>
+      <section className="bg-[#121C2B] border border-[#304055] rounded-xl p-5 sm:p-6 space-y-6">
+        <div className="flex items-center gap-2 pb-3 border-b border-[#304055]">
+          <Database className="w-5 h-5 text-[#55B7A8]" />
+          <h2 className="text-base font-bold text-[#E7EDF5]">Progress Backup & Restoration</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Export Card */}
-          <div className="bg-[#141418] border border-[#23232c] rounded-xl p-4 flex flex-col justify-between space-y-3">
+          <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-zinc-100 mb-1">
-                <Download className="w-4 h-4 text-zinc-400" />
+              <div className="flex items-center gap-2 text-sm font-semibold text-[#E7EDF5] mb-1">
+                <Download className="w-4 h-4 text-[#55B7A8]" />
                 <span>Export Progress</span>
               </div>
-              <p className="text-xs text-zinc-400 leading-relaxed">
+              <p className="text-xs text-[#A6B3C5] leading-relaxed">
                 Save your {progress.solvedQuestions.length} completed problem records, active streaks, notes, and timestamps to a standalone JSON file.
               </p>
             </div>
@@ -97,7 +97,7 @@ export function SettingsView({
             <button
               type="button"
               onClick={onExport}
-              className="w-full py-2 px-3 rounded-lg text-xs font-semibold text-zinc-950 bg-zinc-100 hover:bg-white transition-colors flex items-center justify-center gap-2 shadow-sm"
+              className="w-full py-2 px-3 rounded-lg text-xs font-semibold text-[#0E1522] bg-[#55B7A8] hover:bg-[#70C8B9] transition-colors flex items-center justify-center gap-2 shadow-sm"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download JSON Backup</span>
@@ -105,14 +105,14 @@ export function SettingsView({
           </div>
 
           {/* Import Card */}
-          <div className="bg-[#141418] border border-[#23232c] rounded-xl p-4 flex flex-col justify-between space-y-3">
+          <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 flex flex-col justify-between space-y-3">
             <div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-zinc-100 mb-1">
-                <Upload className="w-4 h-4 text-zinc-400" />
+              <div className="flex items-center gap-2 text-sm font-semibold text-[#E7EDF5] mb-1">
+                <Upload className="w-4 h-4 text-[#70C8B9]" />
                 <span>Import Backup File</span>
               </div>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Restore your solved history from a previously exported <code className="text-zinc-300 font-mono text-[11px]">.json</code> file.
+              <p className="text-xs text-[#A6B3C5] leading-relaxed">
+                Restore your solved history from a previously exported <code className="text-[#70C8B9] font-mono text-[11px]">.json</code> file.
               </p>
             </div>
 
@@ -127,17 +127,17 @@ export function SettingsView({
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="w-full py-2 px-3 rounded-lg text-xs font-semibold text-zinc-200 hover:text-white bg-[#1e1e26] hover:bg-[#282834] border border-[#2d2d3c] transition-colors flex items-center justify-center gap-2"
+              className="w-full py-2 px-3 rounded-lg text-xs font-semibold text-[#E7EDF5] bg-[#202F43] hover:bg-[#243E48] border border-[#304055] hover:border-[#55B7A8]/50 transition-colors flex items-center justify-center gap-2"
             >
-              <Upload className="w-3.5 h-3.5" />
+              <Upload className="w-3.5 h-3.5 text-[#55B7A8]" />
               <span>Select File to Restore</span>
             </button>
           </div>
         </div>
 
         {/* Manual Paste Import Fallback */}
-        <div className="pt-2 border-t border-[#1c1c24] space-y-2">
-          <label className="block text-xs font-medium text-zinc-400">
+        <div className="pt-2 border-t border-[#304055] space-y-2">
+          <label className="block text-xs font-medium text-[#A6B3C5]">
             Or Paste JSON Backup String:
           </label>
           <div className="flex gap-2">
@@ -146,37 +146,37 @@ export function SettingsView({
               value={importText}
               onChange={(e) => setImportText(e.target.value)}
               placeholder='{"solvedQuestions":["lc-1","lc-217"],...}'
-              className="flex-1 bg-[#121216] border border-[#252530] rounded-lg px-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-600 font-mono focus:outline-none focus:border-zinc-500"
+              className="flex-1 bg-[#0E1522] border border-[#304055] rounded-lg px-3 py-1.5 text-xs text-[#E7EDF5] placeholder-[#7F90A6] font-mono focus:outline-none focus:border-[#55B7A8]"
             />
             <button
               type="button"
               onClick={handleManualImport}
               disabled={!importText.trim()}
-              className="px-4 py-1.5 text-xs font-semibold text-white bg-zinc-800 hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed border border-zinc-700 rounded-lg transition-colors"
+              className="px-4 py-1.5 text-xs font-semibold text-[#E7EDF5] bg-[#202F43] hover:bg-[#243E48] disabled:opacity-50 disabled:cursor-not-allowed border border-[#304055] rounded-lg transition-colors"
             >
               Restore
             </button>
           </div>
           {importSuccess && (
-            <p className="text-xs text-zinc-300 flex items-center gap-1 font-medium">
+            <p className="text-xs text-[#83C7A1] flex items-center gap-1 font-medium">
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>Progress restored successfully!</span>
             </p>
           )}
           {importError && (
-            <p className="text-xs text-rose-400">{importError}</p>
+            <p className="text-xs text-[#E18B91]">{importError}</p>
           )}
         </div>
       </section>
 
       {/* Global Reset Section */}
-      <section className="bg-[#0f0f12] border border-[#202026] rounded-xl p-5 sm:p-6 space-y-4">
-        <div className="flex items-center gap-2 pb-3 border-b border-[#1c1c24]">
-          <Trash2 className="w-5 h-5 text-zinc-400" />
-          <h2 className="text-base font-bold text-white">Reset Vault State</h2>
+      <section className="bg-[#121C2B] border border-[#304055] rounded-xl p-5 sm:p-6 space-y-4">
+        <div className="flex items-center gap-2 pb-3 border-b border-[#304055]">
+          <Trash2 className="w-5 h-5 text-[#E18B91]" />
+          <h2 className="text-base font-bold text-[#E7EDF5]">Reset Vault State</h2>
         </div>
 
-        <p className="text-xs text-zinc-400 leading-relaxed">
+        <p className="text-xs text-[#A6B3C5] leading-relaxed">
           Need a completely fresh start? Resetting will unmark all 98 questions, reset your streak to 0, and clear completion history. The 98-question curriculum will remain untouched.
         </p>
 
@@ -184,7 +184,7 @@ export function SettingsView({
           <button
             type="button"
             onClick={onOpenResetModal}
-            className="px-4 py-2 text-xs font-semibold text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-lg transition-colors flex items-center gap-2"
+            className="px-4 py-2 text-xs font-semibold text-[#E18B91] hover:text-[#fff] bg-[#402B33] hover:bg-[#5C3A46] border border-[#5C3A46] rounded-lg transition-colors flex items-center gap-2"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Reset All Progress...</span>
@@ -193,43 +193,43 @@ export function SettingsView({
       </section>
 
       {/* Curriculum Data Integrity Verification */}
-      <section className="bg-[#0f0f12] border border-[#202026] rounded-xl p-5 sm:p-6 space-y-4">
-        <div className="flex items-center gap-2 pb-3 border-b border-[#1c1c24]">
-          <ShieldCheck className="w-5 h-5 text-zinc-400" />
-          <h2 className="text-base font-bold text-white">Curriculum Verification & Specs</h2>
+      <section className="bg-[#121C2B] border border-[#304055] rounded-xl p-5 sm:p-6 space-y-4">
+        <div className="flex items-center gap-2 pb-3 border-b border-[#304055]">
+          <ShieldCheck className="w-5 h-5 text-[#55B7A8]" />
+          <h2 className="text-base font-bold text-[#E7EDF5]">Curriculum Verification & Specs</h2>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-          <div className="p-3 rounded-lg bg-[#141418] border border-[#23232c]">
-            <span className="text-zinc-500 block text-[11px] mb-0.5">Total Questions</span>
-            <span className="font-mono text-base font-bold text-zinc-100 tabular-nums">
+          <div className="p-3 rounded-lg bg-[#182436] border border-[#304055]">
+            <span className="text-[#7F90A6] block text-[11px] mb-0.5">Total Questions</span>
+            <span className="font-mono text-base font-bold text-[#E7EDF5] tabular-nums">
               {totalCount} / 98
             </span>
           </div>
 
-          <div className="p-3 rounded-lg bg-[#141418] border border-[#23232c]">
-            <span className="text-zinc-500 block text-[11px] mb-0.5">Unique IDs</span>
-            <span className="font-mono text-base font-bold text-zinc-100 tabular-nums">
+          <div className="p-3 rounded-lg bg-[#182436] border border-[#304055]">
+            <span className="text-[#7F90A6] block text-[11px] mb-0.5">Unique IDs</span>
+            <span className="font-mono text-base font-bold text-[#E7EDF5] tabular-nums">
               {uniqueIds} / 98 (0 dupes)
             </span>
           </div>
 
-          <div className="p-3 rounded-lg bg-[#141418] border border-[#23232c]">
-            <span className="text-zinc-500 block text-[11px] mb-0.5">LeetCode URLs</span>
-            <span className="font-mono text-base font-bold text-zinc-100">
+          <div className="p-3 rounded-lg bg-[#182436] border border-[#304055]">
+            <span className="text-[#7F90A6] block text-[11px] mb-0.5">LeetCode URLs</span>
+            <span className="font-mono text-base font-bold text-[#83C7A1]">
               {allUrlsValid ? '100% Official' : 'Error'}
             </span>
           </div>
 
-          <div className="p-3 rounded-lg bg-[#141418] border border-[#23232c]">
-            <span className="text-zinc-500 block text-[11px] mb-0.5">Total Main Topics</span>
-            <span className="font-mono text-base font-bold text-zinc-100 tabular-nums">
+          <div className="p-3 rounded-lg bg-[#182436] border border-[#304055]">
+            <span className="text-[#7F90A6] block text-[11px] mb-0.5">Total Main Topics</span>
+            <span className="font-mono text-base font-bold text-[#E7EDF5] tabular-nums">
               18 (A through R)
             </span>
           </div>
         </div>
 
-        <p className="text-[11px] text-zinc-500 pt-2 border-t border-[#1a1a22]">
+        <p className="text-[11px] text-[#7F90A6] pt-2 border-t border-[#304055]">
           Built for private, single-user DSA revision and assessment readiness. Zero external ads, zero telemetry, local persistence only.
         </p>
       </section>

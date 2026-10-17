@@ -123,24 +123,24 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
   return (
     <div className="space-y-6 animate-fade-in pb-12">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-4 sm:p-5">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#121C2B] border border-[#304055] rounded-xl p-4 sm:p-5">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#E7EDF5] tracking-tight">
             Curated Problem Bank
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+          <p className="text-xs sm:text-sm text-[#A6B3C5] mt-1">
             Exactly 98 LeetCode archetypes filtered by topic, difficulty, and completion state.
           </p>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="text-xs text-zinc-400 font-mono">
-            Showing <span className="font-bold text-zinc-100">{filteredQuestions.length}</span> of 98
+          <div className="text-xs text-[#A6B3C5] font-mono">
+            Showing <span className="font-bold text-[#70C8B9]">{filteredQuestions.length}</span> of 98
           </div>
           {hasActiveFilters && (
             <button
               onClick={resetFilters}
-              className="text-xs text-zinc-400 hover:text-white font-medium flex items-center gap-1 transition-colors"
+              className="text-xs text-[#55B7A8] hover:text-[#70C8B9] font-medium flex items-center gap-1 transition-colors"
             >
               <X className="w-3.5 h-3.5" />
               <span>Reset Filters</span>
@@ -150,21 +150,21 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
       </div>
 
       {/* Search & Filter Bar */}
-      <div className="bg-[#0f0f12] border border-[#1e1e24] rounded-xl p-4 space-y-3">
+      <div className="bg-[#182436] border border-[#304055] rounded-xl p-4 space-y-3">
         {/* Search Input */}
         <div className="relative">
-          <Search className="w-4 h-4 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-[#7F90A6] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Filter by title, problem number (#15), topic, pattern, or technique clue..."
-            className="w-full bg-[#15151a] border border-[#23232b] rounded-lg pl-9 pr-8 py-2 text-xs sm:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 font-sans"
+            className="w-full bg-[#0E1522] border border-[#304055] rounded-lg pl-9 pr-8 py-2 text-xs sm:text-sm text-[#E7EDF5] placeholder-[#7F90A6] focus:outline-none focus:border-[#55B7A8] font-sans transition-colors"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 p-1"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#7F90A6] hover:text-[#E7EDF5] p-1"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -175,11 +175,11 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 pt-1 text-xs">
           {/* Topic Select */}
           <div>
-            <label className="block text-[11px] font-medium text-zinc-400 mb-1">Topic</label>
+            <label className="block text-[11px] font-medium text-[#A6B3C5] mb-1">Topic</label>
             <select
               value={selectedTopic}
               onChange={(e) => setSelectedTopic(e.target.value)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500"
+              className="w-full bg-[#121C2B] border border-[#304055] rounded-lg px-2.5 py-1.5 text-[#E7EDF5] focus:outline-none focus:border-[#55B7A8] transition-colors"
             >
               <option value="all">All Topics (18)</option>
               {TOPICS.map((t) => (
@@ -192,11 +192,11 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
 
           {/* Difficulty Select */}
           <div>
-            <label className="block text-[11px] font-medium text-zinc-400 mb-1">Difficulty</label>
+            <label className="block text-[11px] font-medium text-[#A6B3C5] mb-1">Difficulty</label>
             <select
               value={selectedDifficulty}
               onChange={(e) => setSelectedDifficulty(e.target.value)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500"
+              className="w-full bg-[#121C2B] border border-[#304055] rounded-lg px-2.5 py-1.5 text-[#E7EDF5] focus:outline-none focus:border-[#55B7A8] transition-colors"
             >
               <option value="all">All Difficulties</option>
               <option value="Easy">Easy</option>
@@ -207,11 +207,11 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
 
           {/* Status Select */}
           <div>
-            <label className="block text-[11px] font-medium text-zinc-400 mb-1">Status</label>
+            <label className="block text-[11px] font-medium text-[#A6B3C5] mb-1">Status</label>
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500"
+              className="w-full bg-[#121C2B] border border-[#304055] rounded-lg px-2.5 py-1.5 text-[#E7EDF5] focus:outline-none focus:border-[#55B7A8] transition-colors"
             >
               <option value="all">All Statuses</option>
               <option value="unsolved">Unsolved</option>
@@ -221,11 +221,11 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
 
           {/* Priority Select */}
           <div>
-            <label className="block text-[11px] font-medium text-zinc-400 mb-1">Priority</label>
+            <label className="block text-[11px] font-medium text-[#A6B3C5] mb-1">Priority</label>
             <select
               value={selectedPriority}
               onChange={(e) => setSelectedPriority(e.target.value)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500"
+              className="w-full bg-[#121C2B] border border-[#304055] rounded-lg px-2.5 py-1.5 text-[#E7EDF5] focus:outline-none focus:border-[#55B7A8] transition-colors"
             >
               <option value="all">All Priorities</option>
               <option value="core">Core Archetypes</option>
@@ -235,14 +235,14 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
 
           {/* Sort By Select */}
           <div className="col-span-2 sm:col-span-1">
-            <label className="block text-[11px] font-medium text-zinc-400 mb-1 flex items-center gap-1">
-              <ArrowUpDown className="w-3 h-3 text-zinc-500" />
+            <label className="block text-[11px] font-medium text-[#A6B3C5] mb-1 flex items-center gap-1">
+              <ArrowUpDown className="w-3 h-3 text-[#7F90A6]" />
               <span>Sort Order</span>
             </label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="w-full bg-[#15151a] border border-[#23232b] rounded-lg px-2.5 py-1.5 text-zinc-200 focus:outline-none focus:border-zinc-500 font-medium"
+              className="w-full bg-[#121C2B] border border-[#304055] rounded-lg px-2.5 py-1.5 text-[#E7EDF5] focus:outline-none focus:border-[#55B7A8] font-medium transition-colors"
             >
               <option value="unsolved-first">Unsolved First (Default)</option>
               <option value="solved-first">Solved First</option>
@@ -257,13 +257,13 @@ export const QuestionsView: React.FC<QuestionsViewProps> = ({
 
       {/* Questions Vertical List */}
       {filteredQuestions.length === 0 ? (
-        <div className="py-16 text-center bg-[#0d0d0f] border border-[#1e1e22] rounded-xl p-8 space-y-3">
-          <p className="text-zinc-400 text-sm">
+        <div className="py-16 text-center bg-[#121C2B] border border-[#304055] rounded-xl p-8 space-y-3">
+          <p className="text-[#A6B3C5] text-sm">
             No questions match your current filter settings.
           </p>
           <button
             onClick={resetFilters}
-            className="px-4 py-2 rounded-lg text-xs font-semibold text-zinc-900 bg-zinc-100 hover:bg-white transition-colors"
+            className="px-4 py-2 rounded-lg text-xs font-semibold text-[#0E1522] bg-[#55B7A8] hover:bg-[#70C8B9] transition-colors shadow-sm"
           >
             Clear Filters
           </button>

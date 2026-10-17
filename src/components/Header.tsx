@@ -37,21 +37,21 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="h-14 shrink-0 bg-[#070707]/90 backdrop-blur-md border-b border-[#181818] sticky top-0 z-30 px-4 sm:px-6 flex items-center justify-between gap-4">
+    <header className="h-14 shrink-0 bg-[#121C2B]/95 backdrop-blur-md border-b border-[#304055] sticky top-0 z-30 px-4 sm:px-6 flex items-center justify-between gap-4">
       {/* Zone 1: Mobile Hamburger & Page Context Title */}
       <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={onOpenMobileMenu}
-          className="lg:hidden p-1.5 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-[#141414] transition-colors"
+          className="lg:hidden p-1.5 rounded-lg text-[#A6B3C5] hover:text-[#E7EDF5] hover:bg-[#182436] transition-colors"
           aria-label="Open menu"
         >
           <Menu className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-zinc-200">
-          <span className="text-zinc-500 hidden sm:inline">Vault</span>
-          <span className="text-zinc-600 hidden sm:inline">/</span>
+        <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#E7EDF5]">
+          <span className="text-[#7F90A6] hidden sm:inline">Vault</span>
+          <span className="text-[#304055] hidden sm:inline">/</span>
           <span className="tracking-tight">{getTabLabel(currentTab)}</span>
         </div>
       </div>
@@ -61,13 +61,13 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           type="button"
           onClick={onOpenSearch}
-          className="w-full flex items-center justify-between px-3 py-1.5 text-xs text-zinc-400 bg-[#121212] hover:bg-[#181818] border border-[#222222] rounded-lg transition-colors group"
+          className="w-full flex items-center justify-between px-3.5 py-1.5 text-xs text-[#A6B3C5] bg-[#0E1522] hover:bg-[#182436] border border-[#304055] hover:border-[#55B7A8]/60 rounded-lg transition-all group"
         >
           <div className="flex items-center gap-2">
-            <Search className="w-3.5 h-3.5 text-zinc-500 group-hover:text-zinc-400" />
+            <Search className="w-3.5 h-3.5 text-[#7F90A6] group-hover:text-[#55B7A8] transition-colors" />
             <span>{searchQuery ? `Searching: "${searchQuery}"` : 'Search topics, patterns, problem # or title...'}</span>
           </div>
-          <kbd className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-[#1c1c1c] text-zinc-500 border border-[#2b2b2b]">
+          <kbd className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-[#182436] text-[#7F90A6] border border-[#304055] group-hover:text-[#A6B3C5]">
             ⌘K
           </kbd>
         </button>
@@ -78,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({
         <button
           type="button"
           onClick={onOpenSearch}
-          className="md:hidden p-2 text-zinc-400 hover:text-zinc-100 hover:bg-[#141414] rounded-lg transition-colors"
+          className="md:hidden p-2 text-[#A6B3C5] hover:text-[#E7EDF5] hover:bg-[#182436] rounded-lg transition-colors"
           aria-label="Search"
         >
           <Search className="w-4 h-4" />
@@ -89,11 +89,11 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={() => onSelectTab('quick-revision')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
             currentTab === 'quick-revision'
-              ? 'bg-zinc-800 text-zinc-100 border border-zinc-700 shadow-sm'
-              : 'bg-[#141416] text-zinc-400 hover:text-white border border-[#24242c] hover:bg-[#1c1c22]'
+              ? 'bg-[#243E48] text-[#70C8B9] border border-[#55B7A8]/50 shadow-sm'
+              : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055] hover:bg-[#202F43] hover:border-[#55B7A8]/40'
           }`}
         >
-          <Zap className="w-3.5 h-3.5 text-zinc-400" />
+          <Zap className="w-3.5 h-3.5 text-[#55B7A8]" />
           <span className="hidden sm:inline">Quick</span>
           <span>Revision</span>
         </button>
@@ -103,11 +103,11 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={() => onSelectTab('revision-mode')}
           className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
             currentTab === 'revision-mode'
-              ? 'bg-zinc-800 text-zinc-100 border border-zinc-700 shadow-sm'
-              : 'bg-[#141416] text-zinc-400 hover:text-white border border-[#24242c] hover:bg-[#1c1c22]'
+              ? 'bg-[#3A3026] text-[#E7BE88] border border-[#D9AD70]/50 shadow-sm'
+              : 'bg-[#182436] text-[#A6B3C5] hover:text-[#E7EDF5] border border-[#304055] hover:bg-[#202F43] hover:border-[#D9AD70]/40'
           }`}
         >
-          <Flame className="w-3.5 h-3.5 text-zinc-400" />
+          <Flame className="w-3.5 h-3.5 text-[#D9AD70]" />
           <span>Focus Mode</span>
         </button>
       </div>
